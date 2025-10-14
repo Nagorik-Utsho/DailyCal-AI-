@@ -1,0 +1,49 @@
+{
+  "weight_check": [
+
+    {"weight": "", "expected": false, "tc_id": "signup_weight_TC01"},
+    {"weight": " ", "expected": false, "tc_id": "signup_weight_TC02"},
+    {"weight": "abc", "expected": false, "tc_id": "signup_weight_TC03"},
+    {"weight": "💪", "expected": false, "tc_id": "signup_weight_TC04"},
+    {"weight": "🙂", "expected": false, "tc_id": "signup_weight_TC05"},
+    {"weight": "@#$", "expected": false, "tc_id": "signup_weight_TC07"},
+    {"weight": "-10", "expected": false, "tc_id": "signup_weight_TC08"},
+    {"weight": "0", "expected": false, "tc_id": "signup_weight_TC09"},
+    {"weight": "29", "expected": false, "tc_id": "signup_weight_TC10"},
+    {"weight": "751", "expected": false, "tc_id": "signup_weight_TC11"},
+    {"weight": "9999", "expected": false, "tc_id": "signup_weight_TC12"},
+    {"weight": "３５", "expected": false, "tc_id": "signup_weight_TC16"},
+    {"weight": "Ⅳ", "expected": false, "tc_id": "signup_weight_TC17"},
+    {"weight": "٢٥", "expected": false, "tc_id": "signup_weight_TC18"},
+    {"weight": "NaN", "expected": false, "tc_id": "signup_weight_TC19"},
+    {"weight": "Infinity", "expected": false, "tc_id": "signup_weight_TC20"},
+    {"weight": "1e3", "expected": false, "tc_id": "signup_weight_TC22"},
+    {"weight": "０", "expected": false, "tc_id": "signup_weight_TC23"},
+    {"weight": "🔥", "expected": false, "tc_id": "signup_weight_TC24"},
+
+
+    {"weight": "250", "expected": true, "tc_id": "signup_weight_TC27"}
+  ],
+
+  "merge_later":[
+        {"weight": "", "expected": false, "tc_id": "signup_weight_TC01"},
+    {"weight": " ", "expected": false, "tc_id": "signup_weight_TC02"},
+    {"weight": "abc", "expected": false, "tc_id": "signup_weight_TC03"},
+    {"weight": "💪", "expected": false, "tc_id": "signup_weight_TC04"},
+    {"weight": "🙂", "expected": false, "tc_id": "signup_weight_TC05"},
+    {"weight": "@#$", "expected": false, "tc_id": "signup_weight_TC07"},
+    {"weight": "-10", "expected": false, "tc_id": "signup_weight_TC08"},
+    {"weight": "0", "expected": false, "tc_id": "signup_weight_TC09"},
+    {"weight": "29", "expected": false, "tc_id": "signup_weight_TC10"},
+    {"weight": "751", "expected": false, "tc_id": "signup_weight_TC11"},
+    {"weight": "9999", "expected": false, "tc_id": "signup_weight_TC12"},
+    {"weight": "３５", "expected": false, "tc_id": "signup_weight_TC16"},
+    {"weight": "Ⅳ", "expected": false, "tc_id": "signup_weight_TC17"},
+    {"weight": "٢٥", "expected": false, "tc_id": "signup_weight_TC18"},
+    {"weight": "NaN", "expected": false, "tc_id": "signup_weight_TC19"},
+    {"weight": "Infinity", "expected": false, "tc_id": "signup_weight_TC20"},
+    {"weight": "1e3", "expected": false, "tc_id": "signup_weight_TC22"},
+    {"weight": "０", "expected": false, "tc_id": "signup_weight_TC23"},
+    {"weight": "🔥", "expected": false, "tc_id": "signup_weight_TC24"}
+  ]
+}

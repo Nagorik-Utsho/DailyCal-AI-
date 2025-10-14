@@ -1,0 +1,35 @@
+{
+  "birthday_check": [
+
+          {"day": "15", "month": "6", "year": "2000", "expected": true, "tc_id": "signup_087_TC10"}
+
+
+  ],
+  "mergelater": [
+    {"day": "", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC01"},
+    {"day": "0", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC02"},
+    {"day": "32", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC04"},
+    {"day": "abc", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC06"},
+
+    {"day": "15", "month": "", "year": "2000", "expected": false, "tc_id": "signup_086_TC01"},
+    {"day": "15", "month": "0", "year": "2000", "expected": false, "tc_id": "signup_086_TC02"},
+    {"day": "15", "month": "13", "year": "2000", "expected": false, "tc_id": "signup_086_TC04"},
+    {"day": "15", "month": "abc", "year": "2000", "expected": false, "tc_id": "signup_086_TC06"},
+
+    {"day": "15", "month": "6", "year": "", "expected": false, "tc_id": "signup_087_TC01"},
+    {"day": "15", "month": "6", "year": "abc", "expected": false, "tc_id": "signup_087_TC02"},
+    {"day": "15", "month": "6", "year": "-1", "expected": false, "tc_id": "signup_087_TC03"},
+    {"day": "15", "month": "6", "year": "0", "expected": false, "tc_id": "signup_087_TC04"},
+    {"day": "15", "month": "6", "year": "999", "expected": false, "tc_id": "signup_087_TC05"},
+    {"day": "15", "month": "6", "year": "10000", "expected": false, "tc_id": "signup_087_TC06"},
+    {"day": "15", "month": "6", "year": "20a5", "expected": false, "tc_id": "signup_087_TC07"},
+    {"day": "15", "month": "6", "year": "2025", "expected": false, "tc_id": "signup_087_TC10"},
+    {"day": "15", "month": "6", "year": "2000", "expected": true, "tc_id": "signup_087_TC10"}
+
+  ]
+}
+
+
+
+
+
