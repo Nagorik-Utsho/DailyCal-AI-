@@ -59,9 +59,13 @@ class Step_4:
     unhealthy_eating_habits=(By.XPATH,'//android.view.View[@content-desc="Unhealthy eating habits"]')
 
 
+
+
 class Step_5:
-    step_no=(By.XPATH,'//android.view.View[@content-desc="Step 5 of 6"]')
-    weight_bar=(By.XPATH,'//android.widget.SeekBar[@content-desc="42%"]')
+    step_no = (By.XPATH, '//android.view.View[@content-desc="Step 5 of 6"]')
+    seekbar = (By.CLASS_NAME, 'android.widget.SeekBar')  # simple, find the first SeekBar
+
+
 
 
 class Step_6:
@@ -78,5 +82,10 @@ class Step_6:
     option_2=(By.XPATH,'//android.view.View[@content-desc="Boost my energy and mood"]')
     option_3=(By.XPATH,'//android.view.View[@content-desc="Stay motivated & consistent"]')
     option_4=(By.XPATH,'//android.view.View[@content-desc="Feel better about my body"]')
+
+
+class All_information:
+    all_done=(By.XPATH,'// android.view.View[ @ content - desc = "All Done"]')
+    thank_you=(By.XPATH,'//android.view.View[@content-desc="Thank you for trusting us"]')
 
 

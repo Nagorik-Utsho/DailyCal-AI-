@@ -1,3 +1,4 @@
+
 from core.activities import click_on, match_element
 from core.locators import *
 
@@ -121,3 +122,34 @@ def check_options_combinations(driver):
                     all_passed = False
 
         return all_passed
+
+
+def check_one_time_step_4(driver):
+    all_passed = True  # track overall result
+
+
+    try:
+
+        click_on(driver, Step_4.super_active)
+    except Exception as e:
+            print(f"⚠️ Failed to click on option ")
+
+
+    try:
+        click_on(driver, Step_4.unhealthy_eating_habits)
+        click_on(driver, common_button.next_button)
+    except Exception as e:
+                print(f"⚠️ Failed to click on option")
+
+            # Try to match Step 5 within 5 seconds
+    try:
+        title_step_5 = match_element(driver, Step_5.step_no, 5)
+
+    except Exception:
+                # If Step 5 not found, test failed
+                print(
+                    f"❌ Test case failed for combination")
+
+
+
+
