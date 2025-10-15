@@ -85,7 +85,8 @@ class Step_6:
 
 
 class All_information:
-    all_done=(By.XPATH,'// android.view.View[ @ content - desc = "All Done"]')
+    all_done=(By.XPATH,'//android.view.View[@content-desc="All Done"]')
     thank_you=(By.XPATH,'//android.view.View[@content-desc="Thank you for trusting us"]')
+    back_navigation=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
 
 
