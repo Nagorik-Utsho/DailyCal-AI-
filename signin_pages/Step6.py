@@ -142,11 +142,23 @@ def check_one_time_step_6(driver):
 
     try:
         final_page = match_element(driver, All_information.all_done, 5)
+        print("✅ Step 6 passed ")
 
     except Exception:
                 # If Step 5 not found, test failed
                 print(
                     f"❌ Test case failed for combination")
+
+
+    try:
+        click_on(driver,common_button.next_button)
+        print("✅ Going for the Create An Account Page")
+
+    except Exception:
+                # If Step 5 not found, test failed
+                print("Next button not found")
+
+
 
 
 

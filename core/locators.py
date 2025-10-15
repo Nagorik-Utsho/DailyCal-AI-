@@ -89,4 +89,14 @@ class All_information:
     thank_you=(By.XPATH,'//android.view.View[@content-desc="Thank you for trusting us"]')
     back_navigation=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
 
+class Create_An_Account:
+    social_log_in=(By.XPATH,'//android.widget.ImageView[@content-desc="Sign in with Google"]')
+    continue_with_phone=(By.XPATH,'//android.widget.ImageView[@content-desc="continue with phone"]')
+    click_on_gmail=(By.XPATH,'//android.widget.TextView[@resource-id="com.google.android.gms:id/account_display_name" and @text="Md. Samir Shahariar"]')
 
+class Successfull_account:
+   congratulation_message=(By.XPATH,'//android.view.View[@content-desc="Congratulation"]')
+   start_button=(By.XPATH,'//android.widget.Button[@content-desc="Lets get started"]')
+
+class Home_page:
+    activity_logs_title=(By.XPATH,'//android.view.View[@content-desc="Activity logs"]')

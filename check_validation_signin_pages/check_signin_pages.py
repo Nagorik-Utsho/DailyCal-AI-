@@ -1,6 +1,7 @@
-from check_validation_signin_pages.Check_step3 import step_3_checking
-from check_validation_signin_pages.Check_step4 import step_4_checking
-from check_validation_signin_pages.Check_step6 import step_6_checking
+from check_validation_signin_pages.check_account_creation import check_create_account
+from check_validation_signin_pages.check_step3 import step_3_checking
+from check_validation_signin_pages.check_step4 import step_4_checking
+from check_validation_signin_pages.check_step6 import step_6_checking
 from check_validation_signin_pages.check_step1 import step_1_checking
 from check_validation_signin_pages.check_step2 import step_2_checking
 from check_validation_signin_pages.check_step5 import step_5_checking
@@ -15,6 +16,7 @@ def main():
     step_4_checking(driver)
     step_5_checking(driver)
     step_6_checking(driver)
+    check_create_account(driver)
 
 
 
