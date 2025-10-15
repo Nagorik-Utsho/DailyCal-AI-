@@ -24,3 +24,11 @@ def click_on(driver, locator_value,timeout=30):
     wait = WebDriverWait(driver, timeout)
     field = wait.until(EC.presence_of_element_located((locator_value)))
     field.click()
+
+
+
+def match_element(driver, locator_value,timeout=30) :
+    wait=WebDriverWait(driver,timeout)
+    field=wait.until(EC.presence_of_element_located((locator_value)))
+    text=field.get_attribute('content-desc').strip().lower()
+    return text

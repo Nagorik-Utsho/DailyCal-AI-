@@ -42,14 +42,16 @@ class Step_3:
     back_navigation = (By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
 
 class Step_4:
+    from selenium.webdriver.common.by import By
 
-    sedentary=(By.XPATH,' //android.view.View[@content-desc="Sedentary Little to no exercise"]')
-    light_active=(By.XPATH,'//android.view.View[@content-desc="Lightly Active Light exercise/sports 1–3 days/week"]')
-    moderately_active=(By.XPATH,'//android.view.View[@content-desc="Moderately Active Moderate exercise 3–5 days/week"]')
-    very_active=(By.XPATH,'//android.view.View[@content-desc="Very Active Hard exercise 6–7 days/week"]')
-    super_active=(By.XPATH,'//android.view.View[@content-desc="Super Active Very hard exercise/sports & physical job or training twice a day"]')
+    sedentary = (By.XPATH, '//android.view.View[contains(@content-desc, "Sedentary")]/android.widget.RadioButton')
+    light_active = (
+    By.XPATH, '//android.view.View[contains(@content-desc, "Lightly Active")]/android.widget.RadioButton')
+    moderately_active = (By.XPATH, '//android.view.View[contains(@content-desc, "Moderately Active")]/android.widget.RadioButton')
+    very_active = (By.XPATH, '//android.view.View[contains(@content-desc, "Very Active")]/android.widget.RadioButton')
+    super_active = (By.XPATH, '//android.view.View[contains(@content-desc, "Super Active")]/android.widget.RadioButton')
 
-     #Progress Blocking
+    #Progress Blocking
     lack_of_consistency=(By.XPATH,'//android.view.View[@content-desc="Lack of consistency"]')
     lack_of_support=(By.XPATH,'//android.view.View[@content-desc="Lack of support"]')
     busy_schedule=(By.XPATH,'//android.view.View[@content-desc="Busy schedule"]')
