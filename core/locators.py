@@ -100,3 +100,42 @@ class Successfull_account:
 
 class Home_page:
     activity_logs_title=(By.XPATH,'//android.view.View[@content-desc="Activity logs"]')
+    all_features_button=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button')
+    exercise_activities_run=(By.XPATH,'////android.view.View[contains(@content-desc,"RUN")]')
+    exercise_activities_weight_lifting=(By.XPATH,'////android.view.View[contains(@content-desc,"WEIGHT")]')
+    exercise_activities_manual=(By.XPATH,'////android.view.View[contains(@content-desc,"MANUAL")]')
+    exercise_activities_describe = (By.XPATH, '////android.view.View[contains(@content-desc,"DESCRIBE")]')
+
+class Features:
+    log_exercise=(By.XPATH,'//android.widget.ImageView[@content-desc="Log exercise"]')
+    saved_foods=(By.XPATH,'//android.widget.ImageView[@content-desc="Saved foods"]')
+    food_database=(By.XPATH,'//android.widget.ImageView[@content-desc="Food database"]')
+    scan_food=(By.XPATH,'//android.widget.ImageView[@content-desc="Scan food"]')
+
+
+class log_exercise:
+    run_exercise=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Run")]')
+    weight_lifting_exercise=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Weight")]')
+    manual_exercise=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Manual")]')
+    describe_exercise=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Describe")]')
+
+
+class intensity_set_duration:
+    high_intensity=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"High")]')
+    medium_intensity = (By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Medium")]')
+    low_intensity = (By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Low")]')
+
+    duration_15min=(By.XPATH,'//android.view.View[@content-desc="15 mins"]')
+    duration_30min=(By.XPATH,'//android.view.View[@content-desc="30 mins"]')
+    duration_60min=(By.XPATH,'//android.view.View[@content-desc="60 mins"]')
+    duration_90min=(By.XPATH,'//android.view.View[@content-desc="90 mins"]')
+
+    duration_text_field=(By.CLASS_NAME,'android.widget.EditText')
+
+    add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add"]')
+
+
+
+
+
+

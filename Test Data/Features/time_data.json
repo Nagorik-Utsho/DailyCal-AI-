@@ -1,0 +1,33 @@
+{
+  "time": [
+    {"minutes": "95", "expected": false, "tc_id": "time_001_TC02"},
+    {"minutes": "-5", "expected": false, "tc_id": "time_001_TC03"},
+    {"minutes": "0", "expected": true, "tc_id": "time_001_TC04"},
+    {"minutes": "90", "expected": true, "tc_id": "time_001_TC05"},
+    {"minutes": "91", "expected": false, "tc_id": "time_001_TC06"},
+    {"minutes": "45.5", "expected": false, "tc_id": "time_001_TC07"},
+    {"minutes": "100", "expected": false, "tc_id": "time_001_TC08"},
+    {"minutes": "30a", "expected": false, "tc_id": "time_001_TC09"},
+    {"minutes": "", "expected": false, "tc_id": "time_001_TC10"},
+    {"minutes": null, "expected": false, "tc_id": "time_001_TC11"},
+    {"minutes": "true", "expected": false, "tc_id": "time_001_TC12"},
+    {"minutes": "60", "expected": true, "tc_id": "time_001_TC13"},
+    {"minutes": "89", "expected": true, "tc_id": "time_001_TC14"},
+    {"minutes": "91.0", "expected": false, "tc_id": "time_001_TC15"},
+    {"minutes": "  ", "expected": false, "tc_id": "time_001_TC16"},
+    {"minutes": "   30   ", "expected": false, "tc_id": "time_001_TC17"},
+    {"minutes": "abc", "expected": false, "tc_id": "time_001_TC18"},
+    {"minutes": "xyz123", "expected": false, "tc_id": "time_001_TC19"},
+    {"minutes": "@#$%", "expected": false, "tc_id": "time_001_TC20"},
+    {"minutes": "15min", "expected": false, "tc_id": "time_001_TC21"},
+    {"minutes": "minutes", "expected": false, "tc_id": "time_001_TC22"},
+    {"minutes": "one", "expected": false, "tc_id": "time_001_TC23"},
+    {"minutes": "N/A", "expected": false, "tc_id": "time_001_TC24"},
+    {"minutes": "NaN", "expected": false, "tc_id": "time_001_TC25"},
+    {"minutes": "∞", "expected": false, "tc_id": "time_001_TC26"},
+    {"minutes": "undefined", "expected": false, "tc_id": "time_001_TC27"},
+    {"minutes": "null", "expected": false, "tc_id": "time_001_TC28"},
+    {"minutes": "false", "expected": false, "tc_id": "time_001_TC29"},
+    {"minutes": "  \t\n  ", "expected": false, "tc_id": "time_001_TC30"}
+  ]
+}
