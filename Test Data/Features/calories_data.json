@@ -1,0 +1,32 @@
+{
+  "calories": [
+    {"calories": "-5", "expected": false, "tc_id": "time_001_TC02"},
+    {"calories": "0", "expected": false, "tc_id": "time_001_TC03"},
+    {"calories": "1", "expected": true, "tc_id": "time_001_TC04"},
+    {"calories": "900", "expected": true, "tc_id": "time_001_TC05"},
+    {"calories": "1000", "expected": false, "tc_id": "time_001_TC06"},
+    {"calories": "450.5", "expected": false, "tc_id": "time_001_TC07"},
+    {"calories": "1500", "expected": false, "tc_id": "time_001_TC08"},
+    {"calories": "30a", "expected": false, "tc_id": "time_001_TC09"},
+    {"calories": "", "expected": false, "tc_id": "time_001_TC10"},
+    {"calories": "true", "expected": false, "tc_id": "time_001_TC12"},
+    {"calories": "600", "expected": true, "tc_id": "time_001_TC13"},
+    {"calories": "899", "expected": true, "tc_id": "time_001_TC14"},
+    {"calories": "1000.0", "expected": false, "tc_id": "time_001_TC15"},
+    {"calories": "  ", "expected": false, "tc_id": "time_001_TC16"},
+    {"calories": "   30   ", "expected": true, "tc_id": "time_001_TC17"},
+    {"calories": "abc", "expected": false, "tc_id": "time_001_TC18"},
+    {"calories": "xyz123", "expected": false, "tc_id": "time_001_TC19"},
+    {"calories": "@#$%", "expected": false, "tc_id": "time_001_TC20"},
+    {"calories": "15cal", "expected": false, "tc_id": "time_001_TC21"},
+    {"calories": "calories", "expected": false, "tc_id": "time_001_TC22"},
+    {"calories": "one", "expected": false, "tc_id": "time_001_TC23"},
+    {"calories": "N/A", "expected": false, "tc_id": "time_001_TC24"},
+    {"calories": "NaN", "expected": false, "tc_id": "time_001_TC25"},
+    {"calories": "∞", "expected": false, "tc_id": "time_001_TC26"},
+    {"calories": "undefined", "expected": false, "tc_id": "time_001_TC27"},
+    {"calories": "null", "expected": false, "tc_id": "time_001_TC28"},
+    {"calories": "false", "expected": false, "tc_id": "time_001_TC29"},
+    {"calories": "  \t\n  ", "expected": false, "tc_id": "time_001_TC30"}
+  ]
+}

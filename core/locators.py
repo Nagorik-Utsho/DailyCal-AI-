@@ -135,6 +135,12 @@ class intensity_set_duration:
     add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add"]')
 
 
+class describe_exercise:
+    describe_text_field = (By.CLASS_NAME,'android.widget.EditText')
+
+    add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add Exercise"]')
+
+
 
 
 

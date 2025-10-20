@@ -1,0 +1,30 @@
+{
+  "describe_exercise": [
+    {"input": "20-min HIIT workout at 5/10 intensity", "expected": true, "tc_id": "desc_001"},
+    {"input": "15-min yoga session at 3/10 intensity", "expected": true, "tc_id": "desc_002"},
+    {"input": "30-min strength training at 7/10 intensity", "expected": true, "tc_id": "desc_003"},
+    {"input": "10-min run 🏃‍♂️ at 6/10 intensity", "expected": true, "tc_id": "desc_004"},
+    {"input": "5/10 intensity only", "expected": true, "tc_id": "desc_005"},
+    {"input": "", "expected": false, "tc_id": "desc_006"},
+    {"input": "random text here", "expected": false, "tc_id": "desc_008"},
+    {"input": "@#$%", "expected": false, "tc_id": "desc_009"},
+    {"input": "20 minutes HIIT", "expected": false, "tc_id": "desc_010"},
+    {"input": "abc123", "expected": false, "tc_id": "desc_011"},
+    {"input": "🔥🔥", "expected": false, "tc_id": "desc_012"},
+    {"input": "   ", "expected": false, "tc_id": "desc_013"},
+    {"input": "20", "expected": true, "tc_id": "desc_001"},
+    {"input": "  15  ", "expected": true, "tc_id": "desc_002"},
+    {"input": "🏃‍♂️ 30 🏋️‍♀️", "expected": true, "tc_id": "desc_003"},
+    {"input": "", "expected": true, "tc_id": "desc_004"},
+    {"input": "45💪 10", "expected": true, "tc_id": "desc_006"},
+    {"input": "HIIT workout", "expected": false, "tc_id": "desc_007"},
+    {"input": "20-min session", "expected": false, "tc_id": "desc_008"},
+    {"input": "30a", "expected": false, "tc_id": "desc_009"},
+    {"input": "@#$%", "expected": false, "tc_id": "desc_010"},
+    {"input": "10 mins run", "expected": false, "tc_id": "desc_011"},
+    {"input": "abc123", "expected": false, "tc_id": "desc_012"},
+    {"input": "🔥🔥", "expected": true, "tc_id": "desc_013"},
+    {"input": "  \t\n  ", "expected": true, "tc_id": "desc_014"}
+  ]
+}
+
