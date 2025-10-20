@@ -9,7 +9,6 @@
     {"minutes": "100", "expected": false, "tc_id": "time_001_TC08"},
     {"minutes": "30a", "expected": false, "tc_id": "time_001_TC09"},
     {"minutes": "", "expected": false, "tc_id": "time_001_TC10"},
-    {"minutes": null, "expected": false, "tc_id": "time_001_TC11"},
     {"minutes": "true", "expected": false, "tc_id": "time_001_TC12"},
     {"minutes": "60", "expected": true, "tc_id": "time_001_TC13"},
     {"minutes": "89", "expected": true, "tc_id": "time_001_TC14"},

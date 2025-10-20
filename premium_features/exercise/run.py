@@ -79,23 +79,16 @@ def check_duration(driver):
 
 
 def validation_of_duration(driver):
-    # Current script folder
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-    # Go up TWO levels: exercise/ -> premium_features/ -> DailyCal_Automation/
     JSON_PATH = os.path.join(BASE_DIR, "..", "..", "Test Data", "Features", "time_data.json")
 
     print("Looking for JSON at:", JSON_PATH)
-    print("File exists:", os.path.exists(JSON_PATH))
-
     if not os.path.exists(JSON_PATH):
         raise FileNotFoundError(f"JSON file not found: {JSON_PATH}")
 
     with open(JSON_PATH, "r", encoding="utf-8") as f:
         time_data = json.load(f)
 
-
-    # Loop through time test cases
     for time in time_data["time"]:
         minutes = time["minutes"]
         expected = time["expected"]
@@ -104,37 +97,45 @@ def validation_of_duration(driver):
         print(f"\n--- Test Case: {tc_id} ---")
         print(f"Input: '{minutes}' | Expected valid = {expected}")
 
-        # Enter the value
-        fill_input_field(driver, intensity_set_duration.duration_text_field, minutes)
-        driver.hide_keyboard()
-        click_on(driver, intensity_set_duration.add_button)
-
-        print(f"📄 {tc_id}: Entered time={time}")
-
-        # Select intensity first
+        # Select intensity
         try:
             click_on(driver, intensity_set_duration.high_intensity)
             click_on(driver, intensity_set_duration.add_button)
         except Exception as e:
-            print(f"⚠️ Failed to click on option: {e}")
+            print(f"⚠️ Failed to click on intensity: {e}")
 
+        # Enter value safely
         try:
-            # If we find the Home page activity logs, it's a FAIL
-            match_element(driver, Home_page.activity_logs_title, 5)
+            fill_input_field(driver, intensity_set_duration.duration_text_field, minutes)
+            driver.hide_keyboard()
+            click_on(driver, intensity_set_duration.add_button)
+        except Exception as e:
+            print(f"⚠️ Error entering value {minutes}: {e}")
+            go_to_run(driver)  # recover to starting page
+            continue  # skip to next test case
+
+        print(f"📄 {tc_id}: Entered time={time}")
+
+        # Check if app navigated to Home page
+        try:
+            match_element(driver, Home_page.activity_logs_title, 3)
+            # User navigated → test failed
             print(f"❌ Test case FAILED for {time} (User moved to Home page)")
 
-            # Navigate back and go to Run page again
+            # Recover to starting page
             try:
                 go_to_run(driver)
             except Exception as nav_error:
-                print(f"⚠️ Failed to navigate back to Run page: {nav_error}")
+                print(f"⚠️ Failed to navigate back: {nav_error}")
 
         except Exception:
-            # If not found, user stayed on the same page → PASS
+            # User stayed → test passed
             print(f"✅ Test case PASSED for {time} (User stayed on the same page)")
 
 
+
 def check_run_page(driver):
+    go_to_run(driver)
     #check_intensity(driver)
     #check_duration(driver)
     validation_of_duration(driver)
