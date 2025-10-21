@@ -101,16 +101,24 @@ class Successfull_account:
 class Home_page:
     activity_logs_title=(By.XPATH,'//android.view.View[@content-desc="Activity logs"]')
     all_features_button=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button')
-    exercise_activities_run=(By.XPATH,'////android.view.View[contains(@content-desc,"RUN")]')
-    exercise_activities_weight_lifting=(By.XPATH,'////android.view.View[contains(@content-desc,"WEIGHT")]')
-    exercise_activities_manual=(By.XPATH,'////android.view.View[contains(@content-desc,"MANUAL")]')
-    exercise_activities_describe = (By.XPATH, '////android.view.View[contains(@content-desc,"DESCRIBE")]')
+    date_check=(By.XPATH,'//android.view.View[@content-desc="Tue 21"]')
+    daily_progress_section=(By.XPATH,'//android.view.View[contains(@content-desc,"DAILY PROGRESS")]')
+    water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
+    current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
+    today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
+
+
+
+
+
 
 class Features:
     log_exercise=(By.XPATH,'//android.widget.ImageView[@content-desc="Log exercise"]')
     saved_foods=(By.XPATH,'//android.widget.ImageView[@content-desc="Saved foods"]')
     food_database=(By.XPATH,'//android.widget.ImageView[@content-desc="Food database"]')
     scan_food=(By.XPATH,'//android.widget.ImageView[@content-desc="Scan food"]')
+
+
 
 
 class log_exercise:
@@ -140,8 +148,36 @@ class describe_exercise:
 
     add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add Exercise"]')
 
+class scan_food:
+    camera_icon=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button[2]')
+    gallery_icon=(By.XPATH,'//android.widget.ImageView[@content-desc="Gallery"]')
+    analysis_button=(By.XPATH,'//android.widget.Button[@content-desc="Analysis"]')
+    retake_button=(By.XPATH,'//android.widget.Button[@content-desc="Retake"]')
+    collections_xpath=(By.XPATH,'//android.widget.TextView[@text="Collections"]')
+    favourites_xpath=(By.XPATH,'//android.widget.TextView[@text="Favourites"]')
+
+    valid_food_image=(By.XPATH,'//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View[3]/android.view.View[2]/android.view.View')
+    message_for_valid_food=(By.XPATH,'//android.widget.ImageView[@content-desc="Nutrition"]')
+
+    invalid_food_image=(By.XPATH,'//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View[4]/android.view.View[2]/android.view.View')
+    message_for_invalid_food_image=(By.XPATH,'//android.view.View[@content-desc="No recognizable food detected in the image."]')
+
+    back_navigation_invalid_food=(By.XPATH,'//android.widget.Button')
+    blurry_food_image=(By.XPATH,'//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View[2]/android.view.View[2]/android.view.View')
+    food_with_partial_object_image=(By.XPATH,'//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View[1]/android.view.View[2]/android.view.View')
 
 
+
+
+class Nutrition:
+    message_for_valid_food = (By.XPATH, '//android.widget.ImageView[@content-desc="Nutrition"]')
+    food_title = (By.CLASS_NAME, 'android.widget.EditText')
+    increment_button=(By.XPATH,'//android.widget.ScrollView/android.view.View[4]')
+    decrement_button=(By.XPATH,'//android.widget.ScrollView/android.view.View[2]')
+    read_value=(By.XPATH,'//android.view.View[contains(@content-desc,"5")]')
+    total_calories=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Calories")]')
+
+    done_button = (By.XPATH, '//android.widget.Button[@content-desc="Done"]')
 
 
 

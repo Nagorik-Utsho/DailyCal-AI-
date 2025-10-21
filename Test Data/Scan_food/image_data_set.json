@@ -1,0 +1,31 @@
+{
+  "image_test_data": [
+
+
+    {
+      "image": 1,
+      "expected": false,
+      "tc_id": "food_invalid_TC02",
+      "description": "No recognizable food detected in the image."
+    },
+    {
+      "image": 2,
+      "expected": true,
+      "tc_id": "food_valid_TC01",
+      "description": "Valid food image – should return nutrition page"
+    },
+
+    {
+      "image": 3,
+      "expected": false,
+      "tc_id": "food_blurry_TC03",
+      "description": "Blurry image – should return nutrition page"
+    },
+    {
+      "image": 4,
+      "expected": true,
+      "tc_id": "food_partial_TC04",
+      "description": "Partially visible food – should return nutrition page"
+    }
+  ]
+}

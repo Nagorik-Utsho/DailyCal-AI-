@@ -1,0 +1,13 @@
+{
+  "home_page_check": [
+
+          {"title": "daily progress","expected": true, "tc_id": "home_page_01"},
+          {"title": "water","expected": true, "tc_id": "home_page_02"},
+          {"title": "current weight","expected": true, "tc_id": "home_page_03"},
+          {"title": "today's burn","expected": true, "tc_id": "home_page_04"},
+          {"title": "activity logs","expected": true, "tc_id": "home_page_05"}
+
+
+  ]
+
+}

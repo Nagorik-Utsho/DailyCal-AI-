@@ -117,21 +117,44 @@ def validation_of_duration(driver):
 
         print(f"📄 {tc_id}: Entered time={time}")
 
+        # Determine actual app behavior
+        app_on_home = False
         # Check if app navigated to Home page
         try:
             match_element(driver, Home_page.activity_logs_title, 3)
+            app_on_home = True
             # User navigated → test failed
             print(f"❌ Test case FAILED for {time} (User moved to Home page)")
-            all_passed=False
             # Recover to starting page
-            try:
-                go_to_run(driver)
-            except Exception as nav_error:
-                print(f"⚠️ Failed to navigate back: {nav_error}")
 
         except Exception:
             # User stayed → test passed
+            app_on_home = False
             print(f"✅ Test case PASSED for {time} (User stayed on the same page)")
+
+        # Compare expected vs actual
+        if expected:  # Value should be valid → app should go Home
+            if app_on_home:
+                print(f"✅ Test case PASSED for {tc_id} (valid value registered, went Home)")
+            else:
+                print(f"❌ Test case FAILED for {tc_id} (valid value not registered, stayed on Run)")
+                all_passed = False
+        else:  # Value should be invalid → app should stay on Run
+            if app_on_home:
+                print(f"❌ Test case FAILED for {tc_id} (invalid value allowed, went Home)")
+                all_passed = False
+            else:
+                print(f"✅ Test case PASSED for {tc_id} (invalid value blocked, stayed on Run)")
+
+
+        # Recover to Run page for next iteration if needed
+        if app_on_home:
+            try:
+                go_to_run(driver)
+                print("🔄 Returned to Run page for next test")
+            except Exception as nav_error:
+                print(f"⚠️ Failed to navigate back to Run page: {nav_error}")
+                all_passed = False
 
 
     return all_passed
