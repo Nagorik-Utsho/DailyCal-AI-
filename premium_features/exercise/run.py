@@ -79,6 +79,8 @@ def check_duration(driver):
 
 
 def validation_of_duration(driver):
+
+    all_passed=True
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     JSON_PATH = os.path.join(BASE_DIR, "..", "..", "Test Data", "Features", "time_data.json")
 
@@ -100,7 +102,6 @@ def validation_of_duration(driver):
         # Select intensity
         try:
             click_on(driver, intensity_set_duration.high_intensity)
-            click_on(driver, intensity_set_duration.add_button)
         except Exception as e:
             print(f"⚠️ Failed to click on intensity: {e}")
 
@@ -121,7 +122,7 @@ def validation_of_duration(driver):
             match_element(driver, Home_page.activity_logs_title, 3)
             # User navigated → test failed
             print(f"❌ Test case FAILED for {time} (User moved to Home page)")
-
+            all_passed=False
             # Recover to starting page
             try:
                 go_to_run(driver)
@@ -133,9 +134,19 @@ def validation_of_duration(driver):
             print(f"✅ Test case PASSED for {time} (User stayed on the same page)")
 
 
+    return all_passed
+
+
 
 def check_run_page(driver):
     go_to_run(driver)
-    #check_intensity(driver)
-    #check_duration(driver)
-    validation_of_duration(driver)
+    # Uncomment whichever validations you want to include
+    #ntensity_result = check_intensity(driver)
+    #duration_result = check_duration(driver)
+    validation_result = validation_of_duration(driver)
+
+    # Combine results (if any one fails, overall fails)
+    overall_result = all([validation_result])
+
+    print(f"✅ Overall result for Run feature: {overall_result}")
+    return overall_result
