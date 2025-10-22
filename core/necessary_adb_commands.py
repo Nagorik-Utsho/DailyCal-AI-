@@ -19,3 +19,28 @@ def adb_tap_gallery(x, y, device_udid="R4BW600110K"):
 
 
 
+
+
+import subprocess
+import time
+
+def adb_hard_tap(x, y, device_udid="R4BW600110K"):
+    """
+    Perform a single tap on the screen at the given position using ADB.
+    """
+    print(f"Trying to tap at ({x}, {y})")
+
+    cmd = ["adb"]
+    if device_udid:
+        cmd += ["-s", device_udid]
+
+    # Single tap
+    cmd += ["shell", "input", "tap", str(x), str(y)]
+
+    subprocess.run(cmd, check=True)
+    time.sleep(0.3)  # small delay to ensure tap registers
+    print(f"✅ ADB tapped at ({x}, {y})")
+
+
+
+

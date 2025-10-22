@@ -108,9 +108,19 @@ class Home_page:
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
 
 
+class Current_weight:
+    current_weight_page_title=(By.XPATH,'//android.view.View[@content-desc="Your BMI"]')
+    update_goal_weight_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
+    update_current_weight_button=(By.XPATH,'//')
 
 
+class Update_goal_weight:
+    update_goal_weight_input_field=(By.CLASS_NAME,'android.widget.EditText')
+    save_button=(By.XPATH,'//android.widget.Button[@content-desc="Save changes"]')
 
+class Update_current_weight:
+    update_current_weight_input_field = (By.CLASS_NAME,'android.widget.EditText')
+    save_button = (By.XPATH,'//android.widget.Button[@content-desc="Save changes"]')
 
 class Features:
     log_exercise=(By.XPATH,'//android.widget.ImageView[@content-desc="Log exercise"]')
