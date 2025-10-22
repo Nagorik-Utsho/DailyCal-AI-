@@ -57,39 +57,19 @@ def pick_images(driver):
         click_on(driver, scan_food.analysis_button, 60)
         time.sleep(10)  # Replace with dynamic wait if possible
 
-
-        # Special validation for image_id 1
+        # Validation
         if image_id == 1:
             check_message = match_element(driver, scan_food.message_for_invalid_food_image)
-
-            if check_message:
-                check_message = check_message.strip().lower()
-            else:
-                check_message = ""
-
-            print(check_message)
-            print(message)
-
-            if check_message == message:
-                print("Test Case passed")
-                driver.back()
-                click_on(driver, scan_food.retake_button)
-            else:
-                print("Test Case failed")
-
+            check_message = check_message.strip().lower() if check_message else ""
+            assert check_message == message, f"{tc_id} failed: Expected '{message}', got '{check_message}'"
         else:
-            check_message=match_element(driver,Nutrition.message_for_valid_food).strip().lower()
-            if check_message in message :
-                print("Test case passed")
-                driver.back()
-                click_on(driver, scan_food.retake_button)
-            else:
-                print("Test case failed")
-                driver.back()
-                click_on(driver, scan_food.retake_button)
+            check_message = match_element(driver, Nutrition.message_for_valid_food)
+            check_message = check_message.strip().lower() if check_message else ""
+            assert message in check_message, f"{tc_id} failed: Expected '{message}' in '{check_message}'"
 
-
-            time.sleep(1)
+        # Go back for next test
+        driver.back()
+        click_on(driver, scan_food.retake_button)
 
             # For other images, you can do normal validation or continue
 
