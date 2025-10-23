@@ -1,6 +1,8 @@
+import time
+
 from core.activities import click_on
 from core.locators import *
-from core.necessary_adb_commands import  adb_hard_tap
+from core.necessary_adb_commands import adb_tap_element_bottom
 
 
 def go_to_update_goal_weight_page(driver):
@@ -10,7 +12,11 @@ def go_to_update_goal_weight_page(driver):
 
 def go_to_update_current_weight_page(driver):
     click_on(driver, Home_page.current_weight_section)
-    adb_hard_tap(501,1507)
+    time.sleep(5)
+    adb_tap_element_bottom(
+        driver,
+        '//android.view.View[@content-desc="Current Weight 70 kg\nRemember to update this at least once a week so we can adjust your plan to hit your goal.\nUpdate your weight"]'
+    )
 
 
 def all_features_page(driver):
