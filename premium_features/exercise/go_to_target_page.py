@@ -18,12 +18,22 @@ def go_to_update_current_weight_page(driver):
         '//android.view.View[@content-desc="Current Weight 70 kg\nRemember to update this at least once a week so we can adjust your plan to hit your goal.\nUpdate your weight"]'
     )
 
+def go_to_water_settings_page(driver):
+    click_on(driver,Water.go_to_water_settings_page)
+
+def go_to_todays_burn_page(driver) :
+    click_on(driver,todays_burn.go_to_todays_burn)
+
 
 def all_features_page(driver):
 
     #Go to all the features page
     click_on(driver,Home_page.all_features_button)
 
+
+def  go_to_food_database_page(driver):
+    all_features_page(driver)
+    click_on(driver,Features.food_database)
 
 def go_to_log_exercise(driver) :
 

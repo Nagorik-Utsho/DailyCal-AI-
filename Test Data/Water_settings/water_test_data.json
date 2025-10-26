@@ -1,0 +1,13 @@
+{
+  "water_check": [
+
+    {"ml":"100","expected":"100 ml","tc_id": "water_01"},
+    {"ml":"200","expected":"200 ml","tc_id": "water_02"},
+    {"ml":"500","expected":"500 ml","tc_id": "water_03"},
+    {"ml":"750","expected":"750 ml","tc_id": "water_04"},
+    {"ml":"1000","expected":"1000 ml" ,"tc_id": "water_05"},
+    {"ml":"1500","expected":"1500 ml","tc_id": "water_06"},
+    {"ml":"2000","expected":"2000 ml","tc_id": "water_07"}
+  ]
+
+}

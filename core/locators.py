@@ -106,6 +106,36 @@ class Home_page:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
+class Water:
+    water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
+    go_to_water_settings_page=(By.XPATH,'//android.widget.ScrollView/android.widget.ImageView[2]')
+    water_increment=(By.XPATH,'//android.widget.ScrollView/android.widget.Button[2]')
+    water_decrement=(By.XPATH,'//android.widget.ScrollView/android.widget.Button[1]')
+
+    water_setting_page_title=(By.XPATH,'//android.view.View[contains(@content-desc,"Water settings")]')
+
+    click_on_water_drop_down=(By.CLASS_NAME,'android.widget.Button')
+
+    @staticmethod
+    def read_water(ml):
+        """
+        Returns the XPATH for the indexed water element.
+
+        :param ml: The text (e.g., '250 ml') to search for in content-desc
+        :param index: The 1-based index of the element (default = 3)
+        :return: Tuple (By.XPATH, xpath_string)
+        """
+        return (By.XPATH,f'(//android.view.View[contains(@content-desc,"{ml}")])')
+
+    @staticmethod
+    def serving_size_dropdown(ml):
+        """
+        Returns a dynamic locator for the water serving size dropdown.
+
+        :param ml: The milliliter value (e.g., 250, 500)
+        :return: Tuple (By.XPATH, xpath_string)
+        """
+        return (By.XPATH,f'//android.widget.Button[contains(@content-desc,"{ml}")]')
 
 
 class Current_weight:
@@ -129,7 +159,10 @@ class Features:
     scan_food=(By.XPATH,'//android.widget.ImageView[@content-desc="Scan food"]')
 
 
-
+class Food_database :
+    food_database_page_title=(By.XPATH,'//android.view.View[@content-desc="Food database"]')
+    food_data_input_field=(By.CLASS_NAME,'android.widget.EditText')
+    food_data_generate_button=(By.XPATH,'//android.widget.ImageView[@content-desc="Generate Macros Using AI"]')
 
 class log_exercise:
     run_exercise=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Run")]')
@@ -188,6 +221,24 @@ class Nutrition:
     total_calories=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Calories")]')
 
     done_button = (By.XPATH, '//android.widget.Button[@content-desc="Done"]')
+
+
+class todays_burn:
+    go_to_todays_burn = (By.XPATH, '//android.view.View[contains(@content-desc,"TODAY")]')
+
+    back_navigation=(By.XPATH,'//android.widget.Button')
+    todays_burn_page_title=(By.XPATH,'//android.view.View[contains(@content-desc,"TODAY)')
+    exercise_burn=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
+    manual_burn=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual")')
+    al_generated_burn=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')
+    empty_page=(By.XPATH,'//android.widget.ImageView[@content-desc="You haven’t logged any exercise today"]')
+
+    @staticmethod
+    def read_inforamtion(act):
+       return (By.XPATH,f'//android.view.View[@content-desc,"{act}"]')
+
+
+
 
 
 
