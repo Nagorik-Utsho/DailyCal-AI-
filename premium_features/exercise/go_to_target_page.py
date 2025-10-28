@@ -85,4 +85,10 @@ def go_to_food_database(driver):
         all_features_page(driver)
         click_on(driver, Features.food_database)
 
+def go_to_nutrition_page(driver):
+    all_features_page(driver)
+    click_on(driver, Features.saved_foods)
+    click_on(driver,Nutrition.food_in_food_database)
+
+
 

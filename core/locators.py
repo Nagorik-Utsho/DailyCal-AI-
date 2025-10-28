@@ -217,10 +217,26 @@ class Nutrition:
     food_title = (By.CLASS_NAME, 'android.widget.EditText')
     increment_button=(By.XPATH,'//android.widget.ScrollView/android.view.View[4]')
     decrement_button=(By.XPATH,'//android.widget.ScrollView/android.view.View[2]')
-    read_value=(By.XPATH,'//android.view.View[contains(@content-desc,"5")]')
+
+    @staticmethod
+    def read_value(value):
+        read_value = (By.XPATH,f'//android.view.View[contains(@content-desc,"{value}")]')
+
+
     total_calories=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Calories")]')
 
+    update_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
+
     done_button = (By.XPATH, '//android.widget.Button[@content-desc="Done"]')
+
+    food_in_food_database=(By.XPATH,'//android.view.View[contains(@content-desc,"calories")]')
+
+    read_calories=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"calories")]')
+
+
+
+
+
 
 
 class todays_burn:

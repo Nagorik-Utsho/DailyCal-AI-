@@ -101,15 +101,4 @@ def water_decrement_check(driver, ml_01, ml_02, ml_03):
 
 
 
-# def check_water_settings_page (driver):
-#     #go_to_water_settings_page(driver)
-#     water_decrement_check(driver)
-#
-#
-# def main():
-#     driver=setup_driver()
-#     check_water_settings_page(driver)
-#
-#
-# if __name__ == "__main__":
-#         main()
+

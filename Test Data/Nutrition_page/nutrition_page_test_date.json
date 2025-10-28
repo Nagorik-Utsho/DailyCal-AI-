@@ -1,0 +1,53 @@
+{
+  "food_name_field_test": [
+
+
+    {"text": "12345", "expected": false, "tc_id": "food_input_021"},
+    {"text": "6789", "expected": false, "tc_id": "food_input_022"},
+    {"text": "@pple", "expected": false, "tc_id": "food_input_023"},
+    {"text": "banana!", "expected": false, "tc_id": "food_input_024"},
+    {"text": "chicken#", "expected": false, "tc_id": "food_input_025"},
+    {"text": "rice$", "expected": false, "tc_id": "food_input_026"},
+    {"text": "toast*", "expected": false, "tc_id": "food_input_027"},
+    {"text": "cake%pie", "expected": false, "tc_id": "food_input_028"},
+    {"text": "ice@cream", "expected": false, "tc_id": "food_input_029"},
+    {"text": "sushi&roll", "expected": false, "tc_id": "food_input_030"},
+    {"text": "burger^fries", "expected": false, "tc_id": "food_input_031"},
+    {"text": "pizza~margherita", "expected": false, "tc_id": "food_input_032"},
+
+    {"text": null, "expected": false, "tc_id": "food_input_033"},
+    {"text": "", "expected": false, "tc_id": "food_input_034"},
+    {"text": "   ", "expected": false, "tc_id": "food_input_035"},
+    {"text": " \t\n", "expected": false, "tc_id": "food_input_036"},
+
+    {"text": "  apple", "expected": true, "tc_id": "food_input_037"},
+    {"text": "banana  ", "expected": true, "tc_id": "food_input_038"},
+    {"text": "  chicken123  ", "expected": true, "tc_id": "food_input_039"},
+
+    {"text": "super-long-food-name-that-keeps-going-and-going-2025", "expected": true, "tc_id": "food_input_040"},
+    {"text": "extra$$$special", "expected": false, "tc_id": "food_input_041"},
+    {"text": "emoji🍕pizza", "expected": false, "tc_id": "food_input_042"},
+    {"text": "milk&honey", "expected": false, "tc_id": "food_input_043"},
+    {"text": "soup#123", "expected": false, "tc_id": "food_input_044"},
+
+    {"text": "lettuce", "expected": true, "tc_id": "food_input_045"},
+    {"text": "tomato123", "expected": true, "tc_id": "food_input_046"},
+    {"text": "carrotCake", "expected": true, "tc_id": "food_input_047"},
+    {"text": "grapeFruit", "expected": true, "tc_id": "food_input_048"},
+    {"text": "strawberry123", "expected": true, "tc_id": "food_input_049"},
+    {"text": "blueberryPie", "expected": true, "tc_id": "food_input_050"},
+
+    {"text": "   mixedSpaces123   ", "expected": true, "tc_id": "food_input_051"},
+    {"text": "new\nline", "expected": false, "tc_id": "food_input_052"},
+    {"text": "tab\tcharacter", "expected": false, "tc_id": "food_input_053"},
+    {"text": "café", "expected": false, "tc_id": "food_input_054"},
+    {"text": "jalapeño", "expected": false, "tc_id": "food_input_055"},
+
+    {"text": "apple", "expected": true, "tc_id": "food_input_001"},
+    {"text": "banana123", "expected": true, "tc_id": "food_input_002"},
+    {"text": "chickenBreast", "expected": true, "tc_id": "food_input_003"},
+    {"text": "rice2025", "expected": true, "tc_id": "food_input_004"},
+    {"text": "avocadoToast", "expected": true, "tc_id": "food_input_005"},
+    {"text": "GreekYogurt", "expected": true, "tc_id": "food_input_006"}
+  ]
+}

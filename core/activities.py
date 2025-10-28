@@ -63,3 +63,72 @@ def match_element(driver, locator_value,timeout=30) :
     return text
 
 
+def scroll_in_scrollview(driver, max_scrolls_per_direction=1, max_cycles=1):
+    """
+    Scroll up and down in a ScrollView.
+    Returns a dict with status and message.
+    """
+    print("🔄 Starting to scroll in ScrollView...")
+
+    scrollview_xpath = '//android.widget.ScrollView'
+
+    try:
+        wait = WebDriverWait(driver, 60)
+        scrollable = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, scrollview_xpath)))
+    except TimeoutException:
+        print("❌ ScrollView not found.")
+        return {"status": "FAILED", "message": "ScrollView container not found"}
+
+    directions = ["down"]
+
+    for cycle in range(max_cycles):
+        for direction in directions:
+            for attempt in range(max_scrolls_per_direction):
+                try:
+                    scrollable = driver.find_element(AppiumBy.XPATH, scrollview_xpath)
+                    driver.execute_script("mobile: scrollGesture", {
+                        "elementId": scrollable.id,
+                        "direction": direction,
+                        "percent": 0.8
+                    })
+                    print(f"➡️ Scrolled {direction} (cycle {cycle + 1}, attempt {attempt + 1})")
+                    time.sleep(0.5)
+                except StaleElementReferenceException:
+                    print("⚠️ ScrollView went stale, retrying...")
+
+    print("✅ Finished scrolling.")
+    return {"status": "SUCCESS", "message": "Scroll completed"}
+
+
+def swipe_up_mobile(driver):
+    print("Mobile swipe ")
+    driver.execute_script("mobile: scrollGesture", {
+        "direction": "up",
+        # optionally: scroll inside a container element
+        # "elementId": container_element.id,
+        "percent": 0.8
+    })
+    time.sleep(0.5)
+
+
+def screen_swipe_gesture (driver):
+    print("Screen gestrue")
+    size = driver.get_window_size()
+    start_x = size['width'] / 2
+    start_y = size['height'] * 0.8
+    end_y = size['height'] * 0.2
+
+    driver.execute_script("mobile: swipeGesture", {
+        "startX": start_x,
+        "startY": start_y,
+        "endX": start_x,
+        "endY": end_y,
+        "speed": 800
+    })
+    time.sleep(0.5)
+
+
+
+
+
+
