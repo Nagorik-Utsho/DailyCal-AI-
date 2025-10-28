@@ -66,10 +66,10 @@ def test_water_increment_functionality(driver):
     ml_01 = random_water_data[0]["ml"]
     ml_02 = random_water_data[1]["ml"]
 
-    print(f"Sending first water value: {ml_01}")
-    print(f"Sending second water value: {ml_02}")
+    print(f"first water value: {ml_01}")
+    print(f"second water value: {ml_02}")
 
-    actual = water_increment_check(driver, ml_01, ml_02)
+    actual = water_increment_check(driver, ml_01, ml_02,)
     expected = str(int(ml_01) + int(ml_02))
 
     if actual == expected:
@@ -78,6 +78,44 @@ def test_water_increment_functionality(driver):
         print(f"❌ FAIL: Actual value ({actual}) does not match expected ({expected})")
 
     assert actual == expected
+
+
+
+
+
+@pytest.mark.run_feature
+def test_water_decrement_functionality(driver):
+    random_water_data = random.sample(water_amount_data, 2)
+    ml_01 = random_water_data[0]["ml"]
+    ml_02 = random_water_data[1]["ml"]
+    ml_03 = "200"
+
+
+    print(f"first water value: {ml_01}")
+    print(f"second water value: {ml_02}")
+    print(f"third water value: {ml_03}")
+
+    actual = water_decrement_check(driver, ml_01, ml_02, ml_03)
+
+    expected_decrement = str(int(ml_01) + int(ml_02) - int(ml_03))
+
+    if actual == expected_decrement:
+        print(f"✅ PASS: Actual value ({actual}) matches expected ({expected_decrement})")
+    else:
+        print(f"❌ FAIL: Actual value ({actual}) does not match expected ({expected_decrement})")
+
+    assert actual == expected_decrement
+
+
+
+
+
+
+
+
+
+
+
 
 
 

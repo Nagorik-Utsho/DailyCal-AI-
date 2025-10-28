@@ -18,7 +18,8 @@ def main():
     #go_to_page(driver)
     #check_water_settings_page(driver)
     #check_todays_burn_page(driver)
-    check_food_database(driver)
+    #check_food_database(driver)
+    check_water_settings_page(driver)
 
 
 
