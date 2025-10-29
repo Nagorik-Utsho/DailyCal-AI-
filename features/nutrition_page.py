@@ -147,6 +147,100 @@ def validate_number_of_decrement(driver) :
 
 
 
+def validate_protein_update(driver, protein_data):
+    try:
+        # Clear previous value if any
+
+        fill_input_field(driver, Nutrition.input_field_protein, protein_data)
+        click_on(driver, Nutrition.protein_page_done_button)
+
+        # Try to find the success message within 5 seconds
+        try:
+            title_check = match_element(driver, Nutrition.message_for_valid_food, 5)
+            if "nutrition" in title_check.lower():
+                print(f"[PASS] Protein '{protein_data}' validated successfully.")
+                # Open edit protein page
+                click_on(driver, Nutrition.edit_protein_page)
+                return True
+            else:
+                print(f"[FAIL] Protein '{protein_data}' rejected unexpectedly.")
+                return False
+
+        except Exception:
+            # If success message not found, assume invalid input
+            print(f"[INFO] No success message for protein '{protein_data}'. Invalid input.")
+            # Stay on the edit protein page (field already cleared for next test)
+            return False
+
+    except Exception as e:
+        print(f"[ERROR] Exception while validating protein '{protein_data}': {e}")
+        return False
+
+
+
+
+
+def validate_fat_update(driver, fat_data):
+    try:
+        # Clear previous value if any
+
+        fill_input_field(driver, Nutrition.input_field_fats, fat_data)
+        click_on(driver, Nutrition.fat_page_done_button)
+
+        # Try to find the success message within 5 seconds
+        try:
+            title_check = match_element(driver, Nutrition.message_for_valid_food, 5)
+            if "nutrition" in title_check.lower():
+                print(f"[PASS] Fats '{fat_data}' validated successfully.")
+                # Open edit Fats page
+                click_on(driver, Nutrition.edit_fats_page)
+                return True
+            else:
+                print(f"[FAIL] Fats '{fat_data}' rejected unexpectedly.")
+                return False
+
+        except Exception:
+            # If success message not found, assume invalid input
+            print(f"[INFO] No success message for Fat '{fat_data}'. Invalid input.")
+            # Stay on the edit Fats page (field already cleared for next test)
+            return False
+
+    except Exception as e:
+        print(f"[ERROR] Exception while validating Fats '{fat_data}': {e}")
+        return False
+
+
+
+
+def validate_carbs_update(driver, carbs_data):
+    try:
+        # Clear previous value if any
+
+        fill_input_field(driver, Nutrition.input_field_carbs, carbs_data)
+        click_on(driver, Nutrition.carbs_page_done_button)
+
+        # Try to find the success message within 5 seconds
+        try:
+            title_check = match_element(driver, Nutrition.message_for_valid_food, 5)
+            if "nutrition" in title_check.lower():
+                print(f"[PASS] Carbs '{carbs_data}' validated successfully.")
+                # Open edit Carbs page
+                click_on(driver, Nutrition.edit_carbs_page)
+                return True
+            else:
+                print(f"[FAIL] Carbs '{carbs_data}' rejected unexpectedly.")
+                return False
+
+        except Exception:
+            # If success message not found, assume invalid input
+            print(f"[INFO] No success message for Carbs '{carbs_data}'. Invalid input.")
+            # Stay on the edit Carbs page (field already cleared for next test)
+            return False
+
+    except Exception as e:
+        print(f"[ERROR] Exception while validating Carbs '{carbs_data}': {e}")
+        return False
+
 
 
 
@@ -156,7 +250,9 @@ def validate_number_of_decrement(driver) :
 
 def check_nutrition_page(driver):
     go_to_nutrition_page(driver)
-    validate_number_of_decrement(driver)
+    validate_protein_update(driver)
+
+
 
 
 def main():

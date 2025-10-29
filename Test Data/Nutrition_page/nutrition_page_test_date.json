@@ -49,5 +49,106 @@
     {"text": "rice2025", "expected": true, "tc_id": "food_input_004"},
     {"text": "avocadoToast", "expected": true, "tc_id": "food_input_005"},
     {"text": "GreekYogurt", "expected": true, "tc_id": "food_input_006"}
-  ]
+  ],
+
+  "calories_update_test": [
+  {"calories": "0", "expected": true, "tc_id": "food_calories_update_001"},
+  {"calories": "1", "expected": true, "tc_id": "food_calories_update_002"},
+  {"calories": "5999", "expected": true, "tc_id": "food_calories_update_003"},
+  {"calories": "6000", "expected": true, "tc_id": "food_calories_update_004"},
+  {"calories": "500", "expected": true, "tc_id": "food_calories_update_005"},
+
+  {"calories": "-1", "expected": false, "tc_id": "food_calories_update_006"},
+  {"calories": "6001", "expected": false, "tc_id": "food_calories_update_007"},
+  {"calories": "999999", "expected": false, "tc_id": "food_calories_update_008"},
+  {"calories": "50.5", "expected": false, "tc_id": "food_calories_update_009"},
+  {"calories": "abc", "expected": false, "tc_id": "food_calories_update_010"},
+  {"calories": "100a", "expected": false, "tc_id": "food_calories_update_011"},
+  {"calories": "@500", "expected": false, "tc_id": "food_calories_update_012"},
+  {"calories": "500$", "expected": false, "tc_id": "food_calories_update_013"},
+  {"calories": "5 00", "expected": false, "tc_id": "food_calories_update_014"},
+  {"calories": " 500", "expected": false, "tc_id": "food_calories_update_015"},
+  {"calories": "500 ", "expected": false, "tc_id": "food_calories_update_016"},
+  {"calories": "", "expected": false, "tc_id": "food_calories_update_017"},
+  {"calories": " ", "expected": false, "tc_id": "food_calories_update_018"},
+  {"calories": null, "expected": false, "tc_id": "food_calories_update_019"},
+  {"calories": "0005", "expected": true, "tc_id": "food_calories_update_020"}
+],
+"protein_update_test": [
+  {"protein": "0", "expected": true, "tc_id": "protein_update_001", "note": "lower boundary"},
+  {"protein": "1", "expected": true, "tc_id": "protein_update_002", "note": "small valid value"},
+  {"protein": "499", "expected": true, "tc_id": "protein_update_003", "note": "near upper boundary"},
+  {"protein": "500", "expected": true, "tc_id": "protein_update_004", "note": "upper boundary"},
+  {"protein": "250", "expected": true, "tc_id": "protein_update_005", "note": "mid-range valid value"},
+
+  {"protein": "-1", "expected": false, "tc_id": "protein_update_006", "note": "negative number"},
+  {"protein": "501", "expected": false, "tc_id": "protein_update_007", "note": "just above upper boundary"},
+  {"protein": "999", "expected": false, "tc_id": "protein_update_008", "note": "far above upper limit"},
+  {"protein": "50.5", "expected": false, "tc_id": "protein_update_009", "note": "decimal value"},
+  {"protein": "abc", "expected": false, "tc_id": "protein_update_010", "note": "alphabetic string"},
+  {"protein": "100a", "expected": false, "tc_id": "protein_update_011", "note": "alphanumeric"},
+  {"protein": "@50", "expected": false, "tc_id": "protein_update_012", "note": "special character prefix"},
+  {"protein": "50$", "expected": false, "tc_id": "protein_update_013", "note": "special character suffix"},
+  {"protein": "5 0", "expected": false, "tc_id": "protein_update_014", "note": "space within number"},
+  {"protein": " 50", "expected": false, "tc_id": "protein_update_015", "note": "leading whitespace"},
+  {"protein": "50 ", "expected": false, "tc_id": "protein_update_016", "note": "trailing whitespace"},
+  {"protein": "", "expected": false, "tc_id": "protein_update_017", "note": "empty string"},
+  {"protein": " ", "expected": false, "tc_id": "protein_update_018", "note": "whitespace only"},
+  {"protein": null, "expected": false, "tc_id": "protein_update_019", "note": "null input"},
+  {"protein": "005", "expected": true, "tc_id": "protein_update_020", "note": "leading zeros but valid"}
+],
+
+"carbs_update_test": [
+  {"carbs": "0", "expected": true, "tc_id": "carbs_update_001", "note": "lower boundary"},
+  {"carbs": "1", "expected": true, "tc_id": "carbs_update_001", "note": "lower boundary"},
+  {"carbs": "2", "expected": true, "tc_id": "carbs_update_002", "note": "small valid value"},
+  {"carbs": "999", "expected": true, "tc_id": "carbs_update_003", "note": "near upper boundary"},
+  {"carbs": "1000", "expected": true, "tc_id": "carbs_update_004", "note": "upper boundary"},
+  {"carbs": "500", "expected": true, "tc_id": "carbs_update_005", "note": "mid-range valid value"},
+
+  {"carbs": "0", "expected": false, "tc_id": "carbs_update_006", "note": "below lower boundary"},
+  {"carbs": "1001", "expected": false, "tc_id": "carbs_update_007", "note": "just above upper boundary"},
+  {"carbs": "2000", "expected": false, "tc_id": "carbs_update_008", "note": "far above upper limit"},
+  {"carbs": "50.5", "expected": false, "tc_id": "carbs_update_009", "note": "decimal value"},
+  {"carbs": "abc", "expected": false, "tc_id": "carbs_update_010", "note": "alphabetic string"},
+  {"carbs": "100a", "expected": false, "tc_id": "carbs_update_011", "note": "alphanumeric"},
+  {"carbs": "@50", "expected": false, "tc_id": "carbs_update_012", "note": "special character prefix"},
+  {"carbs": "50$", "expected": false, "tc_id": "carbs_update_013", "note": "special character suffix"},
+  {"carbs": "5 0", "expected": false, "tc_id": "carbs_update_014", "note": "space within number"},
+  {"carbs": " 50", "expected": false, "tc_id": "carbs_update_015", "note": "leading whitespace"},
+  {"carbs": "50 ", "expected": false, "tc_id": "carbs_update_016", "note": "trailing whitespace"},
+  {"carbs": "", "expected": false, "tc_id": "carbs_update_017", "note": "empty string"},
+  {"carbs": " ", "expected": false, "tc_id": "carbs_update_018", "note": "whitespace only"},
+  {"carbs": null, "expected": false, "tc_id": "carbs_update_019", "note": "null input"},
+  {"carbs": "005", "expected": true, "tc_id": "carbs_update_020", "note": "leading zeros but valid"}
+],
+  "fat_update_test": [
+    {"fat": "0", "expected": true, "tc_id": "fat_update_001", "note": "lower boundary"},
+  {"fat": "1", "expected": true, "tc_id": "fat_update_001", "note": "lower boundary"},
+  {"fat": "2", "expected": true, "tc_id": "fat_update_002", "note": "small valid value"},
+  {"fat": "299", "expected": true, "tc_id": "fat_update_003", "note": "near upper boundary"},
+  {"fat": "300", "expected": true, "tc_id": "fat_update_004", "note": "upper boundary"},
+  {"fat": "150", "expected": true, "tc_id": "fat_update_005", "note": "mid-range valid value"},
+
+  {"fat": "0", "expected": false, "tc_id": "fat_update_006", "note": "below lower boundary"},
+  {"fat": "301", "expected": false, "tc_id": "fat_update_007", "note": "just above upper boundary"},
+  {"fat": "500", "expected": false, "tc_id": "fat_update_008", "note": "far above upper limit"},
+  {"fat": "50.5", "expected": false, "tc_id": "fat_update_009", "note": "decimal value"},
+  {"fat": "abc", "expected": false, "tc_id": "fat_update_010", "note": "alphabetic string"},
+  {"fat": "100a", "expected": false, "tc_id": "fat_update_011", "note": "alphanumeric"},
+  {"fat": "@50", "expected": false, "tc_id": "fat_update_012", "note": "special character prefix"},
+  {"fat": "50$", "expected": false, "tc_id": "fat_update_013", "note": "special character suffix"},
+  {"fat": "5 0", "expected": false, "tc_id": "fat_update_014", "note": "space within number"},
+  {"fat": " 50", "expected": false, "tc_id": "fat_update_015", "note": "leading whitespace"},
+  {"fat": "50 ", "expected": false, "tc_id": "fat_update_016", "note": "trailing whitespace"},
+  {"fat": "", "expected": false, "tc_id": "fat_update_017", "note": "empty string"},
+  {"fat": " ", "expected": false, "tc_id": "fat_update_018", "note": "whitespace only"},
+  {"fat": null, "expected": false, "tc_id": "fat_update_019", "note": "null input"},
+  {"fat": "005", "expected": true, "tc_id": "fat_update_020", "note": "leading zeros but valid"}
+]
+
+
+
+
+
 }

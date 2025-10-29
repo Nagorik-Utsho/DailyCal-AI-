@@ -233,6 +233,20 @@ class Nutrition:
 
     read_calories=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"calories")]')
 
+    edit_protein_page=(By.XPATH ,'//android.widget.ImageView[contains(@content-desc,"Protein")]')
+    input_field_protein=(By.CLASS_NAME,'android.widget.EditText')
+    protein_page_done_button=(By.XPATH,'//android.widget.Button[@content-desc="Done"]')
+
+    edit_carbs_page=(By.XPATH , '//android.widget.ImageView[contains(@content-desc,"Carbs")]')
+    input_field_carbs = (By.CLASS_NAME,'android.widget.EditText')
+    carbs_page_done_button = (By.XPATH,'//android.widget.Button[@content-desc="Done"]')
+
+
+    edit_fats_page=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Fats")]')
+    input_field_fats=(By.CLASS_NAME,'android.widget.EditText')
+    fat_page_done_button = (By.XPATH,'//android.widget.Button[@content-desc="Done"]')
+
+
 
 
 
