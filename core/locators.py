@@ -106,6 +106,7 @@ class Home_page:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
+
 class Water:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     go_to_water_settings_page=(By.XPATH,'//android.widget.ScrollView/android.widget.ImageView[2]')
@@ -176,14 +177,15 @@ class intensity_set_duration:
     medium_intensity = (By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Medium")]')
     low_intensity = (By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Low")]')
 
-    duration_15min=(By.XPATH,'//android.view.View[@content-desc="15 mins"]')
-    duration_30min=(By.XPATH,'//android.view.View[@content-desc="30 mins"]')
-    duration_60min=(By.XPATH,'//android.view.View[@content-desc="60 mins"]')
-    duration_90min=(By.XPATH,'//android.view.View[@content-desc="90 mins"]')
+    duration_15min = (By.XPATH, "//android.view.View[@content-desc='15 Mins']")
+    duration_30min = (By.XPATH, "//android.view.View[@content-desc='30 Mins']")
+    duration_60min = (By.XPATH, "//android.view.View[@content-desc='60 Mins']")
+    duration_90min = (By.XPATH, "//android.view.View[@content-desc='90 Mins']")
 
     duration_text_field=(By.CLASS_NAME,'android.widget.EditText')
 
     add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add"]')
+    update_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
 
 
 class describe_exercise:
@@ -257,11 +259,16 @@ class todays_burn:
     go_to_todays_burn = (By.XPATH, '//android.view.View[contains(@content-desc,"TODAY")]')
 
     back_navigation=(By.XPATH,'//android.widget.Button')
-    todays_burn_page_title=(By.XPATH,'//android.view.View[contains(@content-desc,"TODAY)')
-    exercise_burn=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
-    manual_burn=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual")')
-    al_generated_burn=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')
+
+    todays_burn_page_title = (By.XPATH,'//android.view.View[contains(@content-desc,"Today")]')
+    update_run = (By.XPATH, "//android.view.View[contains(@content-desc, 'Run')]")
+    update_weight_lifting = (By.XPATH, '//android.view.View[contains(@content-desc,"Weight")]')
+    exercise_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
+    manual_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual")')
+    al_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')
     empty_page=(By.XPATH,'//android.widget.ImageView[@content-desc="You haven’t logged any exercise today"]')
+
+    check_for_regression_run_check=(By.XPATH,'//android.view.View[@content-desc="Run\n02:47 PM\n423 Calories\nIntensity: High\n15 Mins"]')
 
     @staticmethod
     def read_inforamtion(act):
