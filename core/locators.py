@@ -263,7 +263,7 @@ class todays_burn:
     todays_burn_page_title = (By.XPATH,'//android.view.View[contains(@content-desc,"Today")]')
     update_run = (By.XPATH, "//android.view.View[contains(@content-desc, 'Run')]")
     update_duration_input=(By.CLASS_NAME,'android.widget.EditText')
-    update_weight_lifting = (By.XPATH, '//android.view.View[contains(@content-desc,"Weight")]')
+    update_weight_lifting = (By.XPATH,'//android.view.View[contains(@content-desc,"Weight")]')
     exercise_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
     manual_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual")')
     al_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')

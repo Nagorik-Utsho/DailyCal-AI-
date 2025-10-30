@@ -27,7 +27,7 @@ duration_set = [
 
 
 
-def check_intensity_run_update(driver):
+def check_intensity_update(driver):
     """
     For each intensity in intensity_set:
         - select intensity
@@ -82,7 +82,7 @@ def check_intensity_run_update(driver):
 
 
 
-def validation_of_update_duration(driver, minutes):
+def validation_of_update_duration_run(driver, minutes):
     """
     Try updating the duration value.
     Returns True if 'Today's Burn' page appears within 5 seconds, otherwise False.
@@ -110,6 +110,40 @@ def validation_of_update_duration(driver, minutes):
     except Exception as e:
         print(f"⚠️ Exception for '{minutes}': {e}")
         return False
+
+
+def validation_of_update_duration_weightlifting(driver, minutes):
+    """
+    Try updating the duration value.
+    Returns True if 'Today's Burn' page appears within 5 seconds, otherwise False.
+    """
+    try:
+        # Step 1: Select High intensity
+        click_on(driver, intensity_set_duration.high_intensity)
+
+        # Step 2: Enter duration and click update
+        fill_input_field(driver, todays_burn.update_duration_input, minutes)
+        driver.hide_keyboard()
+        click_on(driver, intensity_set_duration.update_button)
+
+        # Step 3: Check if navigation occurred within 5 seconds
+        todays_burn_title = match_element(driver, todays_burn.todays_burn_page_title, timeout=5)
+
+        if todays_burn_title:
+            print(f"✅ [{minutes}] PASSED (page navigated within 5s)")
+            click_on(driver, todays_burn.update_weight_lifting)  # go back to main test page
+            return True
+        else:
+            print(f"❌ [{minutes}] FAILED (page did not navigate within 5s)")
+            return False
+
+    except Exception as e:
+        print(f"⚠️ Exception for '{minutes}': {e}")
+        return False
+
+
+
+
 
 
 
