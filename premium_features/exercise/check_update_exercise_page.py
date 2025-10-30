@@ -167,7 +167,25 @@ def validation_of_update_manual_calories_burn(driver, calories):
 
 
 
+def validation_of_update_ai_calories_burn(driver,calories):
+    print("Ai generated calories update check")
+    # Step 2: Enter duration and click update
+    fill_input_field(driver, todays_burn.ai_generated_update_input_field, calories)
+    click_on(driver, todays_burn.ai_generated_page_update_button)
 
+    # Step 3: Check if navigation occurred within 5 seconds
+    try:
+        todays_burn_title = match_element(driver, todays_burn.todays_burn_page_title, timeout=5)
+    except TimeoutException:
+        todays_burn_title = None  # treat as not found
+
+    if todays_burn_title:
+        click_on(driver, todays_burn.ai_generated_update_page)  # go back to main test page
+        return True
+    else:
+
+
+        return False
 
 
 

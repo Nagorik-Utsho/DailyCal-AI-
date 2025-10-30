@@ -266,7 +266,15 @@ class todays_burn:
     update_weight_lifting = (By.XPATH,'//android.view.View[contains(@content-desc,"Weight")]')
     exercise_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
     manual_burn_list = (By.XPATH, '//android.view.View[contains(@content-desc,"Manual") and contains(@content-desc,"Tab")]')
-    ai_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')
+    ai_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")and contains(@content-desc,"Tab")]')
+    ai_generated_update_page=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories")and contains(@content-desc,"Intensity")]')
+    ai_generated_update_input_field=(By.CLASS_NAME,'android.widget.EditText')
+    ai_generated_page_update_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
+
+
+
+
+
     empty_page=(By.XPATH,'//android.widget.ImageView[@content-desc="You haven’t logged any exercise today"]')
 
     update_manual_calories=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual") and contains(@content-desc,"Calories")]')
