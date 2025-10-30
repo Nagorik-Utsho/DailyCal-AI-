@@ -106,6 +106,7 @@ class Home_page:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
+    testing_title_read=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories") and contains(@content-desc,"TEST - 1")]')
 
 class Water:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
@@ -212,6 +213,11 @@ class scan_food:
     food_with_partial_object_image=(By.XPATH,'//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View[1]/android.view.View[2]/android.view.View')
 
 
+    #new device , this may verify device to device
+    albums=(By.XPATH,'//android.widget.LinearLayout[@content-desc="Albums"]')
+    favourite_group=(By.XPATH,'(//android.widget.ImageView[@resource-id="com.google.android.providers.media.module:id/icon_thumbnail"])[1]')
+    choose_image_picture=(By.XPATH,'//android.widget.ImageView[@resource-id="com.google.android.providers.media.module:id/icon_thumbnail"]')
+
 
 
 class Nutrition:
@@ -219,6 +225,8 @@ class Nutrition:
     food_title = (By.CLASS_NAME, 'android.widget.EditText')
     increment_button=(By.XPATH,'//android.widget.ScrollView/android.view.View[4]')
     decrement_button=(By.XPATH,'//android.widget.ScrollView/android.view.View[2]')
+
+    testing_value_read=(By.XPATH,'//android.widget.ImageView[@content-desc="Calories 300"]')
 
     @staticmethod
     def read_value(value):
@@ -266,8 +274,8 @@ class todays_burn:
     update_weight_lifting = (By.XPATH,'//android.view.View[contains(@content-desc,"Weight")]')
     exercise_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
     manual_burn_list = (By.XPATH, '//android.view.View[contains(@content-desc,"Manual") and contains(@content-desc,"Tab")]')
-    ai_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")and contains(@content-desc,"Tab")]')
-    ai_generated_update_page=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories")and contains(@content-desc,"Intensity")]')
+    ai_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI") and contains(@content-desc,"Tab")]')
+    ai_generated_update_page=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories") and contains(@content-desc,"Intensity")]')
     ai_generated_update_input_field=(By.CLASS_NAME,'android.widget.EditText')
     ai_generated_page_update_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
 
