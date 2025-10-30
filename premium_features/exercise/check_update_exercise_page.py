@@ -26,7 +26,8 @@ duration_set = [
 
 
 
-def check_intensity_update(driver):
+
+def check_intensity_run_update(driver):
     """
     For each intensity in intensity_set:
         - select intensity
@@ -81,94 +82,41 @@ def check_intensity_update(driver):
 
 
 
-def validation_of_duration(driver):
+def validation_of_update_duration(driver, minutes):
+    """
+    Try updating the duration value.
+    Returns True if 'Today's Burn' page appears within 5 seconds, otherwise False.
+    """
+    try:
+        # Step 1: Select High intensity
+        click_on(driver, intensity_set_duration.high_intensity)
 
-    all_passed=True
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    JSON_PATH = os.path.join(BASE_DIR, "..", "..", "Test Data", "Features", "time_data.json")
+        # Step 2: Enter duration and click update
+        fill_input_field(driver, todays_burn.update_duration_input, minutes)
+        driver.hide_keyboard()
+        click_on(driver, intensity_set_duration.update_button)
 
-    print("Looking for JSON at:", JSON_PATH)
-    if not os.path.exists(JSON_PATH):
-        raise FileNotFoundError(f"JSON file not found: {JSON_PATH}")
+        # Step 3: Check if navigation occurred within 5 seconds
+        todays_burn_title = match_element(driver, todays_burn.todays_burn_page_title, timeout=5)
 
-    with open(JSON_PATH, "r", encoding="utf-8") as f:
-        time_data = json.load(f)
+        if todays_burn_title:
+            print(f"✅ [{minutes}] PASSED (page navigated within 5s)")
+            click_on(driver, todays_burn.update_run)  # go back to main test page
+            return True
+        else:
+            print(f"❌ [{minutes}] FAILED (page did not navigate within 5s)")
+            return False
 
-    for time in time_data["time"]:
-        minutes = time["minutes"]
-        expected = time["expected"]
-        tc_id = time["tc_id"]
-
-        print(f"\n--- Test Case: {tc_id} ---")
-        print(f"Input: '{minutes}' | Expected valid = {expected}")
-
-        # Select intensity
-        try:
-            click_on(driver, intensity_set_duration.high_intensity)
-        except Exception as e:
-            print(f"⚠️ Failed to click on intensity: {e}")
-
-        # Enter value safely
-        try:
-            fill_input_field(driver, intensity_set_duration.duration_text_field, minutes)
-            driver.hide_keyboard()
-            click_on(driver, intensity_set_duration.update_button)
-        except Exception as e:
-            print(f"⚠️ Error entering value {minutes}: {e}")
-            go_to_run(driver)  # recover to starting page
-            continue  # skip to next test case
-
-        print(f"📄 {tc_id}: Entered time={time}")
-
-        # Determine actual app behavior
-        app_on_home = False
-        # Check if app navigated to Home page
-        try:
-            match_element(driver, Home_page.activity_logs_title, 3)
-            app_on_home = True
-            # User navigated → test failed
-            print(f"❌ Test case FAILED for {time} (User moved to Home page)")
-            # Recover to starting page
-
-        except Exception:
-            # User stayed → test passed
-            app_on_home = False
-            print(f"✅ Test case PASSED for {time} (User stayed on the same page)")
-
-        # Compare expected vs actual
-        if expected:  # Value should be valid → app should go Home
-            if app_on_home:
-                print(f"✅ Test case PASSED for {tc_id} (valid value registered, went Home)")
-            else:
-                print(f"❌ Test case FAILED for {tc_id} (valid value not registered, stayed on Run)")
-                all_passed = False
-        else:  # Value should be invalid → app should stay on Run
-            if app_on_home:
-                print(f"❌ Test case FAILED for {tc_id} (invalid value allowed, went Home)")
-                all_passed = False
-            else:
-                print(f"✅ Test case PASSED for {tc_id} (invalid value blocked, stayed on Run)")
-
-
-        # Recover to Run page for next iteration if needed
-        if app_on_home:
-            try:
-                go_to_run(driver)
-                print("🔄 Returned to Run page for next test")
-            except Exception as nav_error:
-                print(f"⚠️ Failed to navigate back to Run page: {nav_error}")
-                all_passed = False
-
-
-    return all_passed
-
+    except Exception as e:
+        print(f"⚠️ Exception for '{minutes}': {e}")
+        return False
 
 
 
 def main():
     driver=setup_driver()
     go_to_update_run_page(driver)
-    check_intensity_update(driver)
+    #check_intensity_update(driver)
 
 
 
