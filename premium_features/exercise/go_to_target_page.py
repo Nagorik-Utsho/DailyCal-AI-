@@ -56,6 +56,16 @@ def go_to_update_weightlifting_page(driver) :
     click_on(driver, Home_page.today_burn_section)
     click_on(driver, todays_burn.update_weight_lifting)
 
+def go_to_manual_calories_update_page(driver) :
+    click_on(driver, Home_page.today_burn_section)
+    click_on(driver,todays_burn.manual_burn_list)
+    click_on(driver,todays_burn.update_manual_calories)
+
+
+def go_to_al_generated_list(driver) :
+    click_on(driver,Home_page.today_burn_section)
+    click_on(driver,todays_burn.ai_generated_burn_list)
+
 def go_to_weight_lifting(driver):
     go_to_log_exercise(driver)
     click_on(driver,log_exercise.weight_lifting_exercise)

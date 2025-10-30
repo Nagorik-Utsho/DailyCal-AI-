@@ -68,3 +68,32 @@ def test_update_duration_weight_exercise_feature(driver):
             continue
 
 
+
+# Load JSON test data
+json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Features\calories_data.json"
+with open(json_file_path, "r", encoding="utf-8") as f:
+    calories_validation_data = json.load(f)["calories"]
+@pytest.mark.run_feature
+def test_update_manual_calories(driver):
+    print("Checking manual calories update")
+    go_to_manual_calories_update_page(driver)
+
+    for calories_data in calories_validation_data:
+        calories = calories_data["calories"]
+        expected = calories_data["expected"]
+        tc_id = calories_data["tc_id"]
+
+        # Run the validation
+        result = validation_of_update_manual_calories_burn(driver, calories)
+
+        # Compare with expected and print
+        if result == expected:
+            print(f"✅ TC {tc_id} [{calories}] PASSED")
+        else:
+            print(f"❌ TC {tc_id} [{calories}] FAILED")
+
+        # Continue to next test case automatically
+
+
+
+

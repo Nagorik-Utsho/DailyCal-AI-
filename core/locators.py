@@ -265,10 +265,13 @@ class todays_burn:
     update_duration_input=(By.CLASS_NAME,'android.widget.EditText')
     update_weight_lifting = (By.XPATH,'//android.view.View[contains(@content-desc,"Weight")]')
     exercise_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
-    manual_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual")')
-    al_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')
+    manual_burn_list = (By.XPATH, '//android.view.View[contains(@content-desc,"Manual") and contains(@content-desc,"Tab")]')
+    ai_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI")')
     empty_page=(By.XPATH,'//android.widget.ImageView[@content-desc="You haven’t logged any exercise today"]')
 
+    update_manual_calories=(By.XPATH,'//android.view.View[contains(@content-desc,"Manual") and contains(@content-desc,"Calories")]')
+    update_calories_input_field=(By.CLASS_NAME,'android.widget.EditText')
+    update_calories_update_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
     check_for_regression_run_check=(By.XPATH,'//android.view.View[@content-desc="Run\n02:47 PM\n423 Calories\nIntensity: High\n15 Mins"]')
 
     @staticmethod

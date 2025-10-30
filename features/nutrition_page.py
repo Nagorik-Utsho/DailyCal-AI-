@@ -28,7 +28,7 @@ def validate_nutrition_title(driver, value):
 
             return False
     except Exception as e:
-        print(f"⚠️ Error validating '{value}': {e}")
+        print(f"⚠️ Error validating '{value}'")
         return False  # return False if anything fails
 
 
@@ -173,7 +173,7 @@ def validate_protein_update(driver, protein_data):
             return False
 
     except Exception as e:
-        print(f"[ERROR] Exception while validating protein '{protein_data}': {e}")
+        print(f"[ERROR] Exception while validating protein '{protein_data}'")
         return False
 
 
@@ -206,7 +206,7 @@ def validate_fat_update(driver, fat_data):
             return False
 
     except Exception as e:
-        print(f"[ERROR] Exception while validating Fats '{fat_data}': {e}")
+        print(f"[ERROR] Exception while validating Fats '{fat_data}'")
         return False
 
 
@@ -238,7 +238,7 @@ def validate_carbs_update(driver, carbs_data):
             return False
 
     except Exception as e:
-        print(f"[ERROR] Exception while validating Carbs '{carbs_data}': {e}")
+        print(f"[ERROR] Exception while validating Carbs '{carbs_data}'")
         return False
 
 
@@ -250,7 +250,7 @@ def validate_carbs_update(driver, carbs_data):
 
 def check_nutrition_page(driver):
     go_to_nutrition_page(driver)
-    validate_protein_update(driver)
+
 
 
 
