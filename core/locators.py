@@ -107,6 +107,7 @@ class Home_page:
     current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
     testing_title_read=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories") and contains(@content-desc,"TEST - 1")]')
+    testing_title_run_exercise=(By.XPATH, '//android.view.View[contains(@content-desc,"RUN") and contains(@content-desc,"Calories")]')
 
 class Water:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
@@ -179,7 +180,7 @@ class intensity_set_duration:
     low_intensity = (By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Low")]')
 
     duration_15min = (By.XPATH, "//android.view.View[@content-desc='15 Mins']")
-    duration_30min = (By.XPATH, "//android.view.View[@content-desc='30 Mins']")
+    duration_30min = (By.XPATH, "//android.view.View[@content-desc='30 mnt']")
     duration_60min = (By.XPATH, "//android.view.View[@content-desc='60 Mins']")
     duration_90min = (By.XPATH, "//android.view.View[@content-desc='90 Mins']")
 
