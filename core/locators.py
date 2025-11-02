@@ -102,7 +102,7 @@ class Home_page:
     activity_logs_title=(By.XPATH,'//android.view.View[@content-desc="Activity logs"]')
     all_features_button=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button')
     date_check=(By.XPATH,'//android.view.View[@content-desc="Tue 21"]')
-    daily_progress_section=(By.XPATH,'//android.view.View[contains(@content-desc,"DAILY PROGRESS")]')
+    daily_progress_section=(By.XPATH,'//android.view.View[contains(@content-desc,"DAILY")]')
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
