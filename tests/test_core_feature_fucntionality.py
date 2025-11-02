@@ -1,107 +1,105 @@
-import time
-
+import logging
+import pytest
 from core.activities import click_on
 from core_features_regression.exercise import *
 from core_features_regression.save_food import check_save_food_functionality
 from core_features_regression.scan_food import scan_food_functionality_check
 from core.locators import *
 
-import pytest
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 
 
 @pytest.mark.run_feature
 def test_core_features(driver):
+    """
+    Regression test for core app features:
+    1. Scan food
+    2. Save food
+    3. Run activity
+    4. Weight lifting
+    5. Manual calories
+    6. Describe exercise
+    7. Today's burn value update
+    """
 
+    failures = []  # Collect failures for soft assertion
 
-    #1. Scan food functionality check
-    result_scan_food = scan_food_functionality_check(driver)
-    assert result_scan_food is True, "Food title not found in activity logs"
-    print("Scan food functionality Tested")
+    # Helper function to reduce repetition
+    def verify_feature(feature_func, success_msg, fail_msg):
+        try:
+            result = feature_func(driver)
+            if result:
+                logger.info(f"✅ {success_msg}")
+            else:
+                logger.error(f"❌ {fail_msg}")
+                failures.append(fail_msg)
+            return result
+        except Exception as e:
+            logger.error(f"❌ {fail_msg} - Exception: {e}")
+            failures.append(f"{fail_msg} - Exception: {e}")
+            return False
 
-    #2.Check the saved food functionality
-    result_saved_food = check_save_food_functionality(driver)
+    # 1️⃣ Scan food functionality
+    result = verify_feature(scan_food_functionality_check,
+                            "Scan food functionality tested",
+                            "Food title not found in activity logs")
 
-    # Assertion
-    assert "TEST - 1" in result_saved_food, "❌ Test failed: 'TEST - 1' not found in saved food"
-    print("✅ Test passed: 'TEST - 1' is present in saved food")
+    # 2️⃣ Check saved food
+    try:
+        result_saved_food = check_save_food_functionality(driver)
+        if "TEST - 1" in result_saved_food:
+            logger.info("✅ Test passed: 'TEST - 1' is present in saved food")
+        else:
+            logger.error("❌ Test failed: 'TEST - 1' not found in saved food")
+            failures.append("Saved food check failed")
+    except Exception as e:
+        logger.error(f"❌ Saved food check exception: {e}")
+        failures.append(f"Saved food check exception: {e}")
 
+    driver.back()
+    # 3️⃣ Run activity — Preset
+    verify_feature(check_run_preset_intensity_duration,
+                   "Preset intensity & duration Tested (Run)",
+                   "Preset intensity & duration failed (Run)")
 
+    # 4️⃣ Run activity — Manual
+    verify_feature(check_run_manual_duration_intensity,
+                   "Manual duration with intensity Tested (Run)",
+                   "Manual duration activity failed (Run)")
 
+    # 5️⃣ Weight lifting — Preset
+    verify_feature(check_weight_preset_intensity_duration,
+                   "Preset intensity & duration Tested for Weight Lifting",
+                   "Preset intensity & duration failed (Weight Lifting)")
 
-  # 1️⃣ Run functionality check — Preset
-    result = check_run_preset_intensity_duration(driver)
-    if result:
-        print("✅ Preset intensity & duration Tested (Run)")
-    else:
-        print("❌ Test failed: Preset intensity & duration activity did not match expected values (Run)")
-    assert result, "Test failed: Preset intensity & duration activity did not match expected values"
+    # 6️⃣ Weight lifting — Manual
+    verify_feature(check_weight_manual_duration_intensity,
+                   "Manual duration with intensity Tested (Weight Lifting)",
+                   "Manual duration activity failed (Weight Lifting)")
 
-    time.sleep(2)
+    # 7️⃣ Manual calories input
+    verify_feature(check_manual_calories,
+                   "Manual calories functionality tested",
+                   "Manual calories input activity failed")
 
-    # 2️⃣ Run functionality check — Manual
-    result = check_run_manual_duration_intensity(driver)
-    if result:
-        print("✅ Manual duration with intensity Tested (Run)")
-    else:
-        print("❌ Test failed: Manual duration activity did not match expected values (Run)")
-    assert result, "Test failed: Manual duration activity did not match expected values"
-    time.sleep(2)
+    # 8️⃣ Describe exercise
+    verify_feature(check_describe_exercise,
+                   "Describe exercise functionality tested",
+                   "Describe exercise activity failed")
 
-    # 3️⃣ Weight lifting functionality — Preset
-    result = check_weight_preset_intensity_duration(driver)
-    if result:
-        print("✅ Preset intensity & duration Tested for Weight Lifting")
-    else:
-        print("❌ Test failed: Preset intensity & duration activity did not match expected values (Weight Lifting)")
-    assert result, "Test failed: Preset intensity & duration activity did not match expected values"
+    # 9️⃣ Today's burn update
+    try:
+        updated_value = check_amount_today_burn(driver)
+        if updated_value == 300:
+            logger.info("✅ Value updated at the home page successfully")
+        else:
+            logger.error(f"❌ Test failed: Today's burn value {updated_value} did not match expected 300")
+            failures.append(f"Today's burn value check failed: {updated_value}")
+    except Exception as e:
+        logger.error(f"❌ Today's burn value check exception: {e}")
+        failures.append(f"Today's burn value exception: {e}")
 
-
-    time.sleep(2)
-    # 4️⃣ Weight lifting functionality — Manual
-    result = check_weight_manual_duration_intensity(driver)
-    if result:
-        print("✅ Manual duration with intensity Tested (Weight Lifting)")
-    else:
-        print("❌ Test failed: Manual duration activity did not match expected values (Weight Lifting)")
-    assert result, "Test failed: Manual duration activity did not match expected values"
-
-
-    #time.sleep(2)
-    # 5. Manual calories input functionality
-    result = check_manual_calories(driver)
-    if result:
-        print("✅ Manual calories functionality is  Tested ")
-    else:
-        print("❌ Test failed: Manual calories value   did not match expected values ")
-    assert result, "Test failed: Manual calories input activity did not match expected values"
-
-    time.sleep(2)
-    # 6. Describe exercise functionality check
-    result = check_describe_exercise(driver)
-    if result:
-        print("✅ Describe exercise  is  Tested ")
-    else:
-        print("❌ Test failed: Describe exercise value   did not match expected values ")
-    assert result, "Test failed: Describe exercise activity did not match expected values"
-
-
-    time.sleep(2)
-
-    #7. Today's burn section at the home page  update calories update check
-
-    result=check_amount_today_burn(driver)
-
-    if result == 300 :
-        print("✅ Value updated at  the home page successfully ")
-
-    else :
-        print("❌ Test failed: Today's value   did not match expected values ")
-
-    assert result, "Test failed: Expected updated value  did not match "
-
-
-
-
-
-
-
+    # Final assertion for soft assertion failures
+    assert not failures, "Some core features failed:\n" + "\n".join(failures)
