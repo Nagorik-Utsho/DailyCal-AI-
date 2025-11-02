@@ -191,10 +191,20 @@ class intensity_set_duration:
     update_button=(By.XPATH,'//android.widget.Button[@content-desc="Update"]')
 
 
-class describe_exercise:
-    describe_text_field = (By.CLASS_NAME,'android.widget.EditText')
 
-    add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add Exercise"]')
+
+class manual_calories:
+    manual_calories_burn_page_title=(By.XPATH,'//android.view.View[@content-desc="Calories burned"]')
+    manual_calories_input_field=(By.CLASS_NAME,'android.widget.EditText')
+    manual_calories_add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add"]')
+    testing_title_manual_calories=(By.XPATH, '//android.view.View[contains(@content-desc,"MANUAL") and contains(@content-desc,"Calories")]')
+
+
+class describe_exercise:
+    describe_input_field = (By.CLASS_NAME,'android.widget.EditText')
+    describe_exercise_add_button=(By.XPATH,'//android.widget.Button[@content-desc="Add Exercise"]')
+    testing_title_describe_exercise=(By.XPATH, '//android.view.View[contains(@content-desc,"WALKING") and contains(@content-desc,"Calories")]')
+
 
 class scan_food:
     camera_icon=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button[2]')
@@ -217,9 +227,15 @@ class scan_food:
 
     #new device , this may verify device to device
     albums=(By.XPATH,'//android.widget.LinearLayout[@content-desc="Albums"]')
-    favourite_group=(By.XPATH,'(//android.widget.ImageView[@resource-id="com.google.android.providers.media.module:id/icon_thumbnail"])[1]')
+    favourite_group=(By.XPATH,'//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[1]/android.view.View')
     choose_image_picture=(By.XPATH,'//android.widget.ImageView[@resource-id="com.google.android.providers.media.module:id/icon_thumbnail"]')
 
+class Save_food :
+
+    saved_icon=(By.XPATH,'//android.widget.ScrollView/android.widget.ImageView[1]')
+    testing_food_title = (By.XPATH, '//android.view.View[contains(@content-desc,"Test")]')
+
+    back_navigation=(By.XPATH,'//android.widget.ImageView[@content-desc="Nutrition"]/android.widget.Button[1]')
 
 
 class Nutrition:

@@ -12,13 +12,13 @@ def scan_food_functionality_check(driver):
     click_on(driver, scan_food.gallery_icon)
 
     # 3. Click on album
-    click_on(driver, scan_food.albums)
+    click_on(driver, scan_food.collections_xpath)
 
     # 4. Go to favorite section
-    click_on(driver, scan_food.favourite_group)
+    click_on(driver, scan_food.favourites_xpath)
 
     # 5. Choose the image from the favorite
-    click_on(driver, scan_food.choose_image_picture)
+    click_on(driver, scan_food.valid_food_image)
 
     # 6. Click on analysis
     click_on(driver, scan_food.analysis_button)
