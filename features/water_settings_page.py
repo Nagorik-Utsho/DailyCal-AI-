@@ -13,7 +13,7 @@ def validate_increment(driver,ml) :
 
 def validate_water_settings(driver, ml):
 
-
+    click_on(driver, Water.click_on_water_drop_down)
     click_on(driver,Water.serving_size_dropdown(ml))
     time.sleep(.5)
     #Click on the Increment Button
@@ -97,7 +97,13 @@ def water_decrement_check(driver, ml_01, ml_02, ml_03):
 
 
 
-
+# def main():
+#
+#
+#
+#
+# if __name__ == "__main__":
+#         main()
 
 
 

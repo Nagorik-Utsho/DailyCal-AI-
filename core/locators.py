@@ -121,26 +121,33 @@ class Water:
 
     click_on_water_drop_down=(By.CLASS_NAME,'android.widget.Button')
 
-    @staticmethod
-    def read_water(ml):
-        """
-        Returns the XPATH for the indexed water element.
+    from selenium.webdriver.common.by import By
 
-        :param ml: The text (e.g., '250 ml') to search for in content-desc
-        :param index: The 1-based index of the element (default = 3)
-        :return: Tuple (By.XPATH, xpath_string)
-        """
-        return (By.XPATH,f'(//android.view.View[contains(@content-desc,"{ml}")])')
+
+    @staticmethod
+    def read_water(ml: int, index: int = 1):
+            """
+            Returns a dynamic locator for the water element with a specific ml value.
+
+            :param ml: The milliliter value (e.g., 250, 500)
+            :param index: The 1-based index of the element if multiple exist (default = 1)
+            :return: Tuple (By.XPATH, xpath_string)
+            """
+            # Construct XPath with optional index
+            xpath = f"(//android.view.View[contains(@content-desc,'{ml} ml')])[{index}]"
+            return (By.XPATH, xpath)
 
     @staticmethod
     def serving_size_dropdown(ml):
         """
-        Returns a dynamic locator for the water serving size dropdown.
+        Returns a dynamic locator for the water serving size dropdown for a specific ml value.
 
         :param ml: The milliliter value (e.g., 250, 500)
         :return: Tuple (By.XPATH, xpath_string)
         """
-        return (By.XPATH,f'//android.widget.Button[contains(@content-desc,"{ml}")]')
+        # Make the XPath specific to the ml value
+        xpath = f'//android.widget.Button[contains(@content-desc,"{ml} ml")]'
+        return (By.XPATH, xpath)
 
 
 class Current_weight:

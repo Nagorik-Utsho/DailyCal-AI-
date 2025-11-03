@@ -35,7 +35,7 @@ def read_calories_burn_from_activity_log_run(driver):
 def main():
     driver=setup_driver()
     #read_information_from_daily_progressbar(driver)
-    read_calories_burn_from_activity_log(driver)
+
 
 
 if __name__ == "__main__":
