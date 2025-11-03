@@ -121,7 +121,7 @@ class Water:
 
     click_on_water_drop_down=(By.CLASS_NAME,'android.widget.Button')
 
-    from selenium.webdriver.common.by import By
+    general_water_level_read=(By.XPATH,'//android.view.View[contains(@content-desc,"ml")]')
 
 
     @staticmethod
