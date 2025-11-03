@@ -106,6 +106,7 @@ class Home_page:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     current_weight_section=(By.XPATH,'//android.view.View[contains(@content-desc,"CURRENT WEIGHT")]')
     today_burn_section=(By.XPATH,'//android.view.View[contains(@content-desc,"BURNED")]')
+    read_burn_calories_run=(By.XPATH,'//android.view.View[contains(@content-desc,"RUN") and contains(@content-desc,"Calories")]')
     testing_title_read=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories") and contains(@content-desc,"TEST - 1")]')
     testing_title_run_exercise=(By.XPATH, '//android.view.View[contains(@content-desc,"RUN") and contains(@content-desc,"Calories")]')
     testing_title_Weight_exercise = (By.XPATH, '//android.view.View[contains(@content-desc,"WEIGHT") and contains(@content-desc,"Calories")]')

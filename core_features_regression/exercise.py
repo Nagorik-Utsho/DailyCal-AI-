@@ -47,8 +47,6 @@ def check_run_preset_intensity_duration(driver) :
     print(actual)
 
     current_time = datetime.now().strftime("%I:%M %p").upper()
-    print(current_time)
-    print(current_time)
     expected_values = [current_time, "RUN", "368"]
     return all(val in actual for val in expected_values)  # Returns True or False
 
@@ -72,14 +70,14 @@ def check_run_manual_duration_intensity(driver):
 
     #4.check value from the activity list
     actual=match_element(driver,Home_page.testing_title_run_exercise).upper()
-    print(actual)
+   # print(actual)
 
     current_time = datetime.now().strftime("%I:%M %p").upper()
-    print(current_time)
+    #print(current_time)
 
-    print(current_time)
+    #rint(current_time)
     expected_values = ["RUN", "202"]
-    return all(val in actual for val in expected_values)  # returns True/False
+    return all(val in actual for val in expected_values) ,expected_values[1]  # returns True/False
 
 
 
@@ -149,9 +147,9 @@ def check_manual_calories(driver):
     click_on(driver,manual_calories.manual_calories_add_button)
 
     actual=match_element(driver,manual_calories.testing_title_manual_calories).upper()
-    print(actual)
+    #print(actual)
     expected_values=["MANUAL","300"]
-    return all(val in actual for val in expected_values)  # returns True/False
+    return all(val in actual for val in expected_values),expected_values[1]  # returns True/False
 
 
 def check_describe_exercise(driver):
