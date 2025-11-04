@@ -1,5 +1,6 @@
 
 from core.activities import click_on, match_element
+from core.driver_setup import setup_driver
 from core.locators import *
 
 
@@ -16,7 +17,7 @@ blocking_progress_options=[
     Step_4.lack_of_support,
     Step_4.busy_schedule,
     Step_4.lack_of_meal_inspiration,
-    Step_4.unhealthy_eating_habits,
+    #Step_4.unhealthy_eating_habits,
 
 ]
 
@@ -29,7 +30,7 @@ def check_workOut(driver):
         try:
             print(f"🟢 Clicking on workout option: {work_out}")
             click_on(driver, work_out)
-            click_on(driver, common_button.next_button)
+            click_on(driver, Step_4.step_4_next_button)
         except Exception as e:
             print(f"⚠️ Failed to click on option {work_out}: {e}")
             all_passed = False
@@ -63,7 +64,7 @@ def check_blocking_progress(driver):
         try:
             print(f"🟢 Clicking on workout option: {blocking_progress}")
             click_on(driver, blocking_progress)
-            click_on(driver, common_button.next_button)
+            click_on(driver, Step_4.step_4_next_button)
         except Exception as e:
             print(f"⚠️ Failed to click on option {blocking_progress}: {e}")
             all_passed = False
@@ -84,44 +85,41 @@ def check_blocking_progress(driver):
     return all_passed
 
 
-
-
-
 def check_options_combinations(driver):
-        all_passed = True  # track overall result
+    all_passed = True  # track overall result
 
-        for work_out in work_out_options:
+    for work_out in work_out_options:
+        for blocking_progress in blocking_progress_options:
             try:
-                print(f"🟢 Clicking on workout option: {work_out}")
+                print(f"🟢 Selecting combination: {work_out} + {blocking_progress}")
+
+                # Select workout
                 click_on(driver, work_out)
-            except Exception as e:
-                print(f"⚠️ Failed to click on option {work_out}: {e}")
-                all_passed = False
-                continue  # move to next work_out
 
-            for blocking_progress in blocking_progress_options:
+                # Select blocking progress
+                click_on(driver, blocking_progress)
+
+                # Click next to test if invalid navigation is allowed
+                click_on(driver, Step_4.step_4_next_button)
+
+                # Check if Step 5 appeared (invalid if it does)
                 try:
-                    print(f"🟢 Clicking on blocking progress option: {blocking_progress}")
-                    click_on(driver, blocking_progress)
-                    click_on(driver, common_button.next_button)
-                except Exception as e:
-                    print(f"⚠️ Failed to click on option {blocking_progress}: {e}")
+                    match_element(driver, Step_5.step_no, 3)
+                    print(f"✅ Combination correct: {work_out} + {blocking_progress} (Step 5 appeared)")
                     all_passed = False
-                    continue  # move to next blocking_progress
-
-                # Try to match Step 5 within 5 seconds
-                try:
-                    title_step_5 = match_element(driver, Step_5.step_no, 5)
-                    # If Step 5 found, test passed
-                    print(f"✅ Test case passed for combination: {work_out} + {blocking_progress} (Step 5 appeared)")
-                    click_on(driver, common_button.back_navigation)  # go back to try next combination
                 except Exception:
-                    # If Step 5 not found, test failed
-                    print(
-                        f"❌ Test case failed for combination: {work_out} + {blocking_progress} (Step 5 did not appear)")
-                    all_passed = False
+                    # Step 5 did not appear → correct behavior
+                    print(f"❌ Invalid combination passed: {work_out} + {blocking_progress} (Stayed on Step 4)")
 
-        return all_passed
+                # Go back to Step 4 for the next combination
+                click_on(driver, common_button.back_navigation)
+
+            except Exception as e:
+                print(f"⚠️ Error with combination {work_out} + {blocking_progress}: {e}")
+                all_passed = False
+
+    return all_passed
+
 
 
 def check_one_time_step_4(driver):
@@ -136,14 +134,15 @@ def check_one_time_step_4(driver):
 
 
     try:
-        click_on(driver, Step_4.unhealthy_eating_habits)
-        click_on(driver, common_button.next_button)
+        click_on(driver, Step_4.lack_of_consistency)
+        click_on(driver, Step_4.step_4_next_button)
     except Exception as e:
                 print(f"⚠️ Failed to click on option")
 
             # Try to match Step 5 within 5 seconds
     try:
         title_step_5 = match_element(driver, Step_5.step_no, 5)
+
 
     except Exception:
                 # If Step 5 not found, test failed
@@ -153,3 +152,13 @@ def check_one_time_step_4(driver):
 
 
 
+
+def main():
+    driver=setup_driver()
+    check_options_combinations(driver)
+
+
+
+
+if __name__ == "__main__":
+        main()

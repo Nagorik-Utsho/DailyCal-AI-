@@ -1,49 +1,49 @@
-from core.activities import fill_input_field, click_on
+from core.activities import fill_input_field, click_on, match_element
 from core.locators import *
 from core.necessary_packages import *
 
-def validation_of_height_weight(driver):
-    wait = WebDriverWait(driver, 120)
+def validation_of_height_weight(driver,feet,inch,weight):
 
-    # Current script folder
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-    # Correct folder and file name (with space)
-    JSON_PATH = os.path.join(BASE_DIR, "..", "Test Data", "step_2_test_data.json")
-
-    print("Looking for JSON at:", JSON_PATH)
-
-    with open(JSON_PATH, "r",) as f:
-        height_Weight_data = json.load(f)
-
-    # Iterate over all test cases
-    for data in  height_Weight_data["height_&_weight"]:
-        feet = data["feet"]
-        inch = data["inch"]
-        weight=data["weight"]
-        tc_id = data["tc_id"]
-        expected = data["expected"]
 
         # Fill fields using locators
         fill_input_field(driver, Step_2.input_filed, feet,index=0)  # day
         fill_input_field(driver, Step_2.input_filed, inch,index=1)  # month
         fill_input_field(driver, Step_2.input_filed, weight,index=2)  # year
 
-        #Click on the next button
-        click_on(driver,Step_2.next_button)
-
-        print(f"📄 {tc_id}: Entered feet={feet}, inch={inch}, weight={weight} (expected={expected})")
-
-        if expected is False :
-            print("✅Passed")
-        else :
-            print ("❌Failed")
 
 
 
 
+        # Check if app navigated to step_2
+        try:
+            match_element(driver, Step_3.step_no, 2)
+            # User navigated → test failed
+            print(f"❌ Test case FAILED for feet : {feet},inch: {inch},weight: {weight} (User moved to Step 2 )")
+
+            # Recover to starting page
+
+                # Recover to starting page only if not the last valid case
+            try:
+                click_on(driver, Step_3.back_navigation)
+            except Exception as nav_error:
+                    print(f"⚠️ Failed to navigate back: {nav_error}")
+            return True
+
+        except Exception:
+            return False
 
 
+
+def go_to_step_3(driver, feet, inch, weight):
+
+    print("Go to step 3")
+    # Fill fields using locators
+    fill_input_field(driver, Step_2.input_filed, feet, index=0)  # day
+    fill_input_field(driver, Step_2.input_filed, inch, index=1)  # month
+    fill_input_field(driver, Step_2.input_filed, weight, index=2)  # year
+
+    # Click on the next button
+    click_on(driver, Step_2.next_button)
 
 
 

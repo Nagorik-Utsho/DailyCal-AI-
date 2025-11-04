@@ -9,9 +9,8 @@ class OnBoarding:
 
 
 class common_button:
-    next_button = (By.XPATH, '//android.widget.Button[@content-desc="Next"]')
     back_navigation=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
-
+    next_button= (By.XPATH, '//android.widget.Button[@content-desc="Next"]')
 
 
 class Step_1:
@@ -42,8 +41,9 @@ class Step_3:
     back_navigation = (By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
 
 class Step_4:
-    from selenium.webdriver.common.by import By
 
+    step_no=(By.XPATH,'//android.view.View[@content-desc="Step 4 of 6"]')
+    back_navigation = (By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
     sedentary = (By.XPATH, '//android.view.View[contains(@content-desc, "Sedentary")]/android.widget.RadioButton')
     light_active = (
     By.XPATH, '//android.view.View[contains(@content-desc, "Lightly Active")]/android.widget.RadioButton')
@@ -57,6 +57,7 @@ class Step_4:
     busy_schedule=(By.XPATH,'//android.view.View[@content-desc="Busy schedule"]')
     lack_of_meal_inspiration=(By.XPATH,'//android.view.View[@content-desc="Lack of meal inspiration"]')
     unhealthy_eating_habits=(By.XPATH,'//android.view.View[@content-desc="Unhealthy eating habits"]')
+    step_4_next_button=(By.XPATH, '//android.widget.Button[@content-desc="Next"]')
 
 
 
@@ -64,6 +65,7 @@ class Step_4:
 class Step_5:
     step_no = (By.XPATH, '//android.view.View[@content-desc="Step 5 of 6"]')
     seekbar = (By.CLASS_NAME, 'android.widget.SeekBar')  # simple, find the first SeekBar
+    step_5_next_button = (By.XPATH, '//android.widget.Button[@content-desc="Next"]')
 
 
 
@@ -82,7 +84,7 @@ class Step_6:
     option_2=(By.XPATH,'//android.view.View[@content-desc="Boost my energy and mood"]')
     option_3=(By.XPATH,'//android.view.View[@content-desc="Stay motivated & consistent"]')
     option_4=(By.XPATH,'//android.view.View[@content-desc="Feel better about my body"]')
-
+    step_6_next_button=(By.XPATH, '//android.widget.Button[@content-desc="Next"]')
 
 class All_information:
     all_done=(By.XPATH,'//android.view.View[@content-desc="All Done"]')

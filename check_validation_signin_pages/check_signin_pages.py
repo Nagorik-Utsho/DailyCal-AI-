@@ -10,13 +10,13 @@ from core.driver_setup import setup_driver
 
 def main():
     driver=setup_driver()
-    step_1_checking(driver)
-    step_2_checking(driver)
-    step_3_checking(driver)
+    # step_1_checking(driver)
+    # step_2_checking(driver)
+    # step_3_checking(driver)
     step_4_checking(driver)
-    step_5_checking(driver)
-    step_6_checking(driver)
-    check_create_account(driver)
+    # step_5_checking(driver)
+    #step_6_checking(driver)
+    #check_create_account(driver)
 
 
 

@@ -1,4 +1,5 @@
 from core.activities import fill_input_field, click_on, match_element
+from core.driver_setup import setup_driver
 from core.locators import *
 from core.necessary_packages import *
 from premium_features.exercise.go_to_target_page import go_to_run
@@ -173,3 +174,13 @@ def check_run_page(driver):
 
     print(f"✅ Overall result for Run feature: {overall_result}")
     return overall_result
+
+
+def main():
+    driver=setup_driver()
+    check_run_page(driver)
+
+
+if __name__ =='__main__' :
+    main()
+

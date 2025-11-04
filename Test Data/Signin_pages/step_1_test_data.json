@@ -1,12 +1,9 @@
 {
-  "birthday_check": [
+  "valid": [
+    {"day": "5", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC01"}],
 
-          {"day": "15", "month": "6", "year": "2000", "expected": true, "tc_id": "signup_087_TC10"}
 
-
-  ],
-  "mergelater": [
-    {"day": "", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC01"},
+     "birthday_check":[
     {"day": "0", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC02"},
     {"day": "32", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC04"},
     {"day": "abc", "month": "1", "year": "2000", "expected": false, "tc_id": "signup_085_TC06"},

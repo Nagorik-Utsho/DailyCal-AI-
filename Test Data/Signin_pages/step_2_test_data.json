@@ -1,9 +1,9 @@
 {
-  "height_&_weight": [
+    "valid": [  {"feet": "5", "inch": "7", "weight": "150", "expected": true, "tc_id": "signup_087_TC10"}],
 
-    {"feet": "5", "inch": "7", "weight": "150", "expected": true, "tc_id": "signup_087_TC10"}
-  ],
-  "merge_later": [    {"feet": "👣", "inch": "5", "weight": "50", "expected": false, "tc_id": "signup_085_TC01"},
+
+    "height_&_weight": [
+    {"feet": "👣", "inch": "5", "weight": "50", "expected": false, "tc_id": "signup_085_TC01"},
     {"feet": "5", "inch": "🎯", "weight": "100", "expected": false, "tc_id": "signup_085_TC02"},
     {"feet": "5", "inch": "6", "weight": "💪", "expected": false, "tc_id": "signup_085_TC03"},
     {"feet": "🦶", "inch": "👈", "weight": "50", "expected": false, "tc_id": "signup_085_TC04"},
@@ -34,5 +34,7 @@
     {"feet": "3", "inch": "2", "weight": "20", "expected": false, "tc_id": "signup_087_TC07"},
     {"feet": "8", "inch": "3", "weight": "100", "expected": false, "tc_id": "signup_087_TC08"},
     {"feet": "3", "inch": "2", "weight": "29a", "expected": false, "tc_id": "signup_087_TC09"}
+
   ]
+
 }

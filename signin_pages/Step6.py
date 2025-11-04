@@ -86,40 +86,40 @@ def check_accomplishment_options(driver):
 
 
 
-def check_options_combinations(driver):
-        all_passed = True  # track overall result
+def check_options_combinations_step_6(driver):
+    all_passed = True  # track overall result
 
-        for diet in specific_diet_options:
+    for diet in specific_diet_options:
+        for accomplish in accomplishment_options:
             try:
-                print(f"🟢 Clicking on diet option: {diet}")
+                print(f"🟢 Selecting combination: {diet} + {accomplish}")
+
+                # Select diet option
                 click_on(driver, diet)
-            except Exception as e:
-                print(f"⚠️ Failed to click on option {diet}: {e}")
-                all_passed = False
-                continue  # move to next work_out
 
-            for accomplish in accomplishment_options:
-                try:
-                    print(f"🟢 Clicking on accomplish option: {accomplish}")
-                    click_on(driver, accomplish)
-                    click_on(driver, common_button.next_button)
-                except Exception as e:
-                    print(f"⚠️ Failed to click on option {accomplish}: {e}")
-                    all_passed = False
-                    continue  # move to new option
+                # Select accomplishment option
+                click_on(driver, accomplish)
 
-                # Try to match Step 5 within 5 seconds
+                # Click next to test if the combination navigates correctly
+                click_on(driver, common_button.next_button)
+
+                # Check if final page appeared (valid behavior)
                 try:
-                    title_final= match_element(driver, All_information.all_done, 5)
-                    print(f"✅ Test case passed for combination: {diet} + {accomplish} (Final Page appeared)")
-                    click_on(driver, common_button.back_navigation)  # go back to try next combination
+                    match_element(driver, All_information.all_done, 3)
+                    print(f"✅ Combination correct: {diet} + {accomplish} (Final page appeared)")
                 except Exception:
-                    # If Step 5 not found, test failed
-                    print(
-                        f"❌ Test case failed for combination: {diet} + {accomplish} (Final Page did not appear)")
+                    print(f"❌ Combination failed: {diet} + {accomplish} (Final page did not appear)")
                     all_passed = False
 
-        return all_passed
+                # Go back to Step 6 for next combination
+                click_on(driver, common_button.back_navigation)
+
+            except Exception as e:
+                print(f"⚠️ Error with combination {diet} + {accomplish}: {e}")
+                all_passed = False
+
+    return all_passed
+
 
 
 def check_one_time_step_6(driver):

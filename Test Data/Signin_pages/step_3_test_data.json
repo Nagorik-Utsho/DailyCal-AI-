@@ -1,10 +1,6 @@
-{
+{  "valid": [{"weight": "150", "expected": true, "tc_id": "signup_weight_TC27"}],
   "weight_check": [
-    {"weight": "150", "expected": true, "tc_id": "signup_weight_TC27"}
-  ],
-
-  "merge_later":[
-        {"weight": "", "expected": false, "tc_id": "signup_weight_TC01"},
+    {"weight": "", "expected": false, "tc_id": "signup_weight_TC01"},
     {"weight": " ", "expected": false, "tc_id": "signup_weight_TC02"},
     {"weight": "abc", "expected": false, "tc_id": "signup_weight_TC03"},
     {"weight": "💪", "expected": false, "tc_id": "signup_weight_TC04"},

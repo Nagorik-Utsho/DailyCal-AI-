@@ -21,8 +21,6 @@ def test_update_intensity_exercise_feature(driver):
 
 
 
-
-
 @pytest.mark.run_feature
 def test_update_duration_run_exercise_feature(driver):
     go_to_update_run_page(driver)
