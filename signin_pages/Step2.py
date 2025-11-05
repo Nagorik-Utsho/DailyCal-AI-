@@ -9,6 +9,8 @@ def validation_of_height_weight(driver,feet,inch,weight):
         fill_input_field(driver, Step_2.input_filed, feet,index=0)  # day
         fill_input_field(driver, Step_2.input_filed, inch,index=1)  # month
         fill_input_field(driver, Step_2.input_filed, weight,index=2)  # year
+        click_on(driver,common_button.next_button)
+
 
 
 

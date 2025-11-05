@@ -29,8 +29,10 @@ def validation_of_weight(driver,weight):
 
 
 
-def go_to_step4(driver,weight):
+def go_to_onetime_step4(driver,weight):
         print("Going to step 4 ")
+        #select Gender
+        click_on(driver,Step_3.gain_weight)
         # Fill fields using locators
         fill_input_field(driver, Step_3.input_filed, weight,index=0)  # Weight
         #Click on the next button

@@ -122,7 +122,7 @@ def check_options_combinations(driver):
 
 
 
-def check_one_time_step_4(driver):
+def go_to_onetime_step5(driver):
     all_passed = True  # track overall result
 
 

@@ -122,41 +122,56 @@ def check_options_combinations_step_6(driver):
 
 
 
-def check_one_time_step_6(driver):
-    all_passed = True  # track overall result
+def go_to_finalPage(driver):
+    """
+    Navigate through Step 6 options and reach the final page.
+    Uses soft assertions to continue on failures but still reports them.
+    """
+    step_failures = []  # collect issues
 
-
+    # 1️⃣ Select Vegan option
     try:
-
         click_on(driver, Step_6.vegan)
+        print("✅ Clicked Vegan option")
     except Exception as e:
-            print(f"⚠️ Failed to click on option ")
+        print(f"⚠️ Failed to click on Vegan option: {e}")
+        step_failures.append("Step 6: Vegan option click failed")
 
-
+    # 2️⃣ Select another option and click Next
     try:
         click_on(driver, Step_6.option_4)
         click_on(driver, common_button.next_button)
+        print("✅ Selected option 4 and clicked Next")
     except Exception as e:
-                print(f"⚠️ Failed to click on option")
+        print(f"⚠️ Failed to click on option 4 or Next: {e}")
+        step_failures.append("Step 6: Option 4 / Next click failed")
 
-
+    # 3️⃣ Validate final page is displayed
     try:
         final_page = match_element(driver, All_information.all_done, 5)
-        print("✅ Step 6 passed ")
+        print("✅ Final page loaded successfully")
+    except Exception as e:
+        print(f"❌ Final page not found: {e}")
+        step_failures.append("Step 6: Final page validation failed")
 
-    except Exception:
-                # If Step 5 not found, test failed
-                print(
-                    f"❌ Test case failed for combination")
-
-
+    # 4️⃣ Click Next to go to Create Account page
     try:
-        click_on(driver,common_button.next_button)
-        print("✅ Going for the Create An Account Page")
+        click_on(driver, common_button.next_button)
+        print("✅ Navigated to Create An Account page")
+    except Exception as e:
+        print(f"⚠️ Next button not found on final page: {e}")
+        step_failures.append("Step 6: Next button click failed")
 
-    except Exception:
-                # If Step 5 not found, test failed
-                print("Next button not found")
+    # 5️⃣ Assert at the end (soft assertion)
+    if step_failures:
+        print("\n⚠️ Step 6 encountered the following issues:")
+        for failure in step_failures:
+            print("-", failure)
+        # Fail the pytest test case, but after collecting all errors
+        assert False, " | ".join(step_failures)
+    else:
+        print("\n✅ Step 6 completed successfully without errors")
+
 
 
 

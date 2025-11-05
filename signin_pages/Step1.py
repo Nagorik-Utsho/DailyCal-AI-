@@ -1,19 +1,25 @@
+import time
+
 from core.activities import fill_input_field, click_on, match_element
 from core.locators import *
 from core.necessary_packages import *
 
 def validation_of_birthdate(driver , day,month,year):
+        time.sleep(1)
 
-        # Fill fields using locators
+    # Fill fields using locators
         fill_input_field(driver, Step_1.input_filed, day,index=0)  # day
+        time.sleep(0.3)
         fill_input_field(driver, Step_1.input_filed, month,index=1)  # month
+        time.sleep(0.3)
         fill_input_field(driver, Step_1.input_filed, year,index=2)  # year
+        time.sleep(0.3)
         #Click on the next button
         click_on(driver,Step_1.next_button)
 
         # Check if app navigated to step_2
         try:
-            match_element(driver,Step_2.step_no,2)
+            match_element(driver,Step_2.step_no,5)
             # User navigated → test failed
             print(f"❌ Test case FAILED for day : {day},month: {month},year: {year} (User moved to Step 2 )")
 
