@@ -1,5 +1,13 @@
 {
   "time": [
+    {"minutes": "85", "expected": true, "tc_id": "time_001_TC15"}
+
+  ],
+
+  "valid":[
+    {"minutes": "null", "expected": false, "tc_id": "time_001_TC28"},
+    {"minutes": "false", "expected": false, "tc_id": "time_001_TC29"},
+    {"minutes": "  \t\n  ", "expected": false, "tc_id": "time_001_TC30"},
     {"minutes": "95", "expected": false, "tc_id": "time_001_TC02"},
     {"minutes": "-5", "expected": false, "tc_id": "time_001_TC03"},
     {"minutes": "0", "expected": true, "tc_id": "time_001_TC04"},
@@ -24,10 +32,8 @@
     {"minutes": "N/A", "expected": false, "tc_id": "time_001_TC24"},
     {"minutes": "NaN", "expected": false, "tc_id": "time_001_TC25"},
     {"minutes": "∞", "expected": false, "tc_id": "time_001_TC26"},
-    {"minutes": "undefined", "expected": false, "tc_id": "time_001_TC27"},
-    {"minutes": "null", "expected": false, "tc_id": "time_001_TC28"},
-    {"minutes": "false", "expected": false, "tc_id": "time_001_TC29"},
-    {"minutes": "  \t\n  ", "expected": false, "tc_id": "time_001_TC30"}
+    {"minutes": "undefined", "expected": false, "tc_id": "time_001_TC27"}
+
   ]
 
 }

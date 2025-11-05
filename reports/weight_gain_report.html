@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title id="head-title">report.html</title>
+    <title id="head-title">weight_gain_report.html</title>
       <style type="text/css">body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -327,8 +327,8 @@ div.media {
     
   </head>
   <body>
-    <h1 id="title">report.html</h1>
-    <p>Report generated on 05-Nov-2025 at 18:25:44 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+    <h1 id="title">weight_gain_report.html</h1>
+    <p>Report generated on 05-Nov-2025 at 14:28:32 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
         v4.1.1</p>
     <div id="environment-header">
       <h2>Environment</h2>
@@ -382,10 +382,10 @@ div.media {
         <h2>Summary</h2>
         <div class="additional-summary prefix">
         </div>
-        <p class="run-count">0/0 test done.</p>
+        <p class="run-count">1 test took 00:01:44.</p>
         <p class="filter">(Un)check the boxes to filter the results.</p>
         <div class="summary__reload">
-          <div class="summary__reload__button " onclick="location.reload()">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
             <div>There are still tests running. <br />Reload this page to get the latest results!</div>
           </div>
         </div>
@@ -394,8 +394,8 @@ div.media {
           <div class="filters">
             <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" disabled/>
             <span class="failed">0 Failed,</span>
-            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" disabled/>
-            <span class="passed">0 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" />
+            <span class="passed">1 Passed,</span>
             <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" disabled/>
             <span class="skipped">0 Skipped,</span>
             <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled/>
@@ -429,7 +429,7 @@ div.media {
     </table>
   </body>
   <footer>
-    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.13.3&#34;, &#34;Platform&#34;: &#34;Windows-11-10.0.26100-SP0&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.4.2&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}, &#34;Plugins&#34;: {&#34;html&#34;: &#34;4.1.1&#34;, &#34;metadata&#34;: &#34;3.1.1&#34;}}, &#34;tests&#34;: {}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.13.3&#34;, &#34;Platform&#34;: &#34;Windows-11-10.0.26100-SP0&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.4.2&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}, &#34;Plugins&#34;: {&#34;html&#34;: &#34;4.1.1&#34;, &#34;metadata&#34;: &#34;3.1.1&#34;}}, &#34;tests&#34;: {&#34;tests/test_weight_gain_functionality.py::test_gain_weight_features&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/test_weight_gain_functionality.py::test_gain_weight_features&#34;, &#34;duration&#34;: &#34;00:01:44&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_weight_gain_functionality.py::test_gain_weight_features&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:01:44&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;---------------------------- Captured stdout setup -----------------------------\nDriver setup successful for device: R4BW600110K\n\n----------------------------- Captured stdout call -----------------------------\nTotal calories: 2487\nTotal calories: 870\n\u2705 The title is: 02:28 pm\ntest - 1\n870 calories\nNow in the GO to run file\nBurned calories :  433\nTotal calories: 2350\n\n----------------------------- Captured stderr call -----------------------------\n2025-11-05 14:27:05,151 [INFO] \ud83d\udcca Initial calories: 2487\n2025-11-05 14:28:08,796 [INFO] \ud83c\udf7d\ufe0f  Food calories added: 870\n2025-11-05 14:28:22,201 [INFO] \ud83c\udfc3 Manual run calories burned: 433\n2025-11-05 14:28:31,387 [INFO] \ud83d\udd25 Manual calories burned entry: 300\n2025-11-05 14:28:31,606 [INFO] \ud83d\udcc8 Final calories on progress bar: 2350\n2025-11-05 14:28:31,607 [INFO] \ud83e\uddee Expected calories: 2350\n2025-11-05 14:28:31,607 [INFO] \u2705 Weight gain functionality PASSED\n\n------------------------------ Captured log call -------------------------------\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:37 \ud83d\udcca Initial calories: 2487\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:42 \ud83c\udf7d\ufe0f  Food calories added: 870\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:47 \ud83c\udfc3 Manual run calories burned: 433\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:51 \ud83d\udd25 Manual calories burned entry: 300\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:55 \ud83d\udcc8 Final calories on progress bar: 2350\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:63 \ud83e\uddee Expected calories: 2350\nINFO     tests.test_weight_gain_functionality:test_weight_gain_functionality.py:67 \u2705 Weight gain functionality PASSED\n\n&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;weight_gain_report.html&#34;}"></div>
     <script>
       (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')

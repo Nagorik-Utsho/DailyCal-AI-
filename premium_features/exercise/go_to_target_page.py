@@ -50,7 +50,7 @@ def go_to_run(driver):
 
 def go_to_update_run_page(driver) :
     click_on(driver,Home_page.today_burn_section)
-    click_on(driver,todays_burn.update_weight_lifting)
+    click_on(driver,todays_burn.update_run)
 
 def go_to_update_weightlifting_page(driver) :
     click_on(driver, Home_page.today_burn_section)

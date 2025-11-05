@@ -297,9 +297,9 @@ class todays_burn:
     back_navigation=(By.XPATH,'//android.widget.Button')
 
     todays_burn_page_title = (By.XPATH,'//android.view.View[contains(@content-desc,"Today")]')
-    update_run = (By.XPATH, "//android.view.View[contains(@content-desc, 'Run')]")
+    update_run = (By.XPATH, "//android.view.View[contains(@content-desc,'Run')]")
     update_duration_input=(By.CLASS_NAME,'android.widget.EditText')
-    update_weight_lifting = (By.XPATH,'//android.view.View[contains(@content-desc,"Weight")]')
+    update_weight_lifting = (By.XPATH, '//android.view.View[contains(@content-desc,"Weight") and contains(@content-desc,"lifting") and contains(@content-desc,"Intensity")]')
     exercise_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"Exercise")')
     manual_burn_list = (By.XPATH, '//android.view.View[contains(@content-desc,"Manual") and contains(@content-desc,"Tab")]')
     ai_generated_burn_list=(By.XPATH,'//android.view.View[contains(@content-desc,"AI") and contains(@content-desc,"Tab")]')
@@ -309,7 +309,7 @@ class todays_burn:
 
 
 
-
+    update_run_back_navigation=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
 
     empty_page=(By.XPATH,'//android.widget.ImageView[@content-desc="You haven’t logged any exercise today"]')
 
