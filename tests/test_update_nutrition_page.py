@@ -116,7 +116,7 @@ def test_update_fat_nutrition_page(driver):
 
     failed_cases = []
     click_on(driver, Nutrition.edit_fats_page)
-    for fat in test_data["fats_update_test"]:
+    for fat in test_data["fat_update_test"]:
         fat_data = fat["fat"]
         expected = fat["expected"]
         tc_id = fat["tc_id"]
@@ -147,7 +147,6 @@ def test_update_fat_nutrition_page(driver):
 def test_update_carbs_nutrition_page(driver):
     #go_to_nutrition_page(driver)
     click_on_back_navigation(driver)
-
 
 
     failed_cases = []
