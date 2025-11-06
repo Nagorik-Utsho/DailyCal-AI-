@@ -111,8 +111,8 @@ class Home_page:
     read_burn_calories_run=(By.XPATH,'//android.view.View[contains(@content-desc,"RUN") and contains(@content-desc,"Calories")]')
     testing_title_read=(By.XPATH,'//android.view.View[contains(@content-desc,"Calories") and contains(@content-desc,"TEST - 1")]')
     testing_title_run_exercise=(By.XPATH, '//android.view.View[contains(@content-desc,"RUN") and contains(@content-desc,"Calories")]')
-    testing_title_Weight_exercise = (By.XPATH, '//android.view.View[contains(@content-desc,"WEIGHT") and contains(@content-desc,"Calories")]')
-
+    testing_title_Weight_exercise = (By.XPATH, '//android.view.View[contains(@content-desc,"WEIGHT") and contains(@content-desc,"Calories")]'
+)
 class Water:
     water_section=(By.XPATH,'//android.view.View[@content-desc="Water"]')
     go_to_water_settings_page=(By.XPATH,'//android.widget.ScrollView/android.widget.ImageView[2]')
@@ -283,6 +283,9 @@ class Nutrition:
     edit_fats_page=(By.XPATH,'//android.widget.ImageView[contains(@content-desc,"Fats")]')
     input_field_fats=(By.CLASS_NAME,'android.widget.EditText')
     fat_page_done_button = (By.XPATH,'//android.widget.Button[@content-desc="Done"]')
+    back_navigation=(By.XPATH,'//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button')
+
+
 
 
 

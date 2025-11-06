@@ -12,10 +12,9 @@ def go_to_update_goal_weight_page(driver):
 
 def go_to_update_current_weight_page(driver):
     click_on(driver, Home_page.current_weight_section)
-    time.sleep(5)
     adb_tap_element_bottom(
         driver,
-        '//android.view.View[@content-desc="Current Weight 70 kg\nRemember to update this at least once a week so we can adjust your plan to hit your goal.\nUpdate your weight"]'
+        '//android.view.View[contains(@content-desc,"Weight") and contains(@content-desc,"Update")]'
     )
 
 def go_to_water_settings_page(driver):

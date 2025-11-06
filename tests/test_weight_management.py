@@ -1,12 +1,7 @@
-import json
-import pytest
-from colorama import Fore, Style
+
 
 from features.update_goal_weight_page import validate_weight_input_field, check_current_weight_page
 from premium_features.exercise.go_to_target_page import go_to_update_goal_weight_page
-from core.activities import click_on
-from core.locators import Current_weight
-
 import json
 import pytest
 import logging

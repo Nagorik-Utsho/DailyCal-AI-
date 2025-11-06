@@ -7,7 +7,11 @@ from core.driver_setup import setup_driver
 from core.locators import Nutrition, Home_page
 from premium_features.exercise.go_to_target_page import go_to_nutrition_page
 
-def validate_nutrition_title(driver, value):
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+
+
+def validate_nutrition_title(driver, value, timeout=5):
     try:
         scroll_in_scrollview(driver)
         fill_input_field(driver, Nutrition.food_title, value)
@@ -16,20 +20,30 @@ def validate_nutrition_title(driver, value):
         click_on(driver, Nutrition.update_button)
         time.sleep(0.5)
 
-        # Match content from the home page
-        home_page = match_element(driver, Home_page.activity_logs_title)
-        print(f"Home page title: {home_page}")
+        # Wait for home page element, but only for `timeout` seconds
+        try:
+            home_page_element = WebDriverWait(driver, timeout).until(
+                lambda d: match_element(d, Home_page.activity_logs_title)
+            )
+            print(f"Home page title: {home_page_element}")
 
-        # Check if expected text is present
-        if "activity log" in home_page.lower():  # safer lowercase comparison
-            go_to_nutrition_page(driver)
-            return True
-        else:
+            if "activity log" in home_page_element.lower():
+                go_to_nutrition_page(driver)
+                return True
+            else:
+                return False
 
+        except TimeoutException:
+            print(f"⚠️ Timeout: Home page did not load after updating with '{value}'")
+            # Maybe refresh or just return False to move on
+            driver.refresh()  # optional: refresh page to reset loop
             return False
+
     except Exception as e:
-        print(f"⚠️ Error validating '{value}'")
-        return False  # return False if anything fails
+        print(f"⚠️ Error validating '{value}': {e}")
+        return False
+
+
 
 
 

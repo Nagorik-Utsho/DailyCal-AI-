@@ -1,19 +1,30 @@
 import json
-import pytest
-from colorama import Fore, Style, init
+
+from colorama import init
 
 from core.activities import click_on
 from core.locators import Nutrition
 from features.nutrition_page import validate_nutrition_title, validate_nutrition_increment, validate_protein_update, \
     validate_carbs_update, validate_fat_update
 from premium_features.exercise.go_to_target_page import go_to_nutrition_page
-
 init(autoreset=True)  # For colored output
+import pytest
+from colorama import Fore, Style, init
+
+
+
+
+def click_on_back_navigation(driver):
+    click_on(driver,Nutrition.back_navigation)
+
+
+
+
 
 # Load JSON test data
 json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Nutrition_page\nutrition_page_test_date.json"
 with open(json_file_path, "r", encoding="utf-8") as f:
-    food_title_test_data = json.load(f)["food_name_field_test"]
+    test_data = json.load(f)
 
 @pytest.mark.run_feature
 def test_update_nutrition_page(driver):
@@ -21,7 +32,7 @@ def test_update_nutrition_page(driver):
 
     failed_cases = []  # Collect failed test cases
 
-    for data in food_title_test_data:
+    for data in test_data["food_name_field_test"]:
         title = data["text"]
         expected = data["expected"]
         tc_id = data["tc_id"]
@@ -39,15 +50,12 @@ def test_update_nutrition_page(driver):
             pytest.fail(f"\nSome test cases failed:\n{failed_message}")
 
 
-import pytest
-from colorama import Fore, Style, init
 
-init(autoreset=True)
 
 
 @pytest.mark.run_feature
 def test_increment_food_amount_nutrition_page(driver):
-    go_to_nutrition_page(driver)
+    #go_to_nutrition_page(driver)
 
     number_of_increment = 5
 
@@ -67,22 +75,15 @@ def test_increment_food_amount_nutrition_page(driver):
 
 
 
-
-
-# Load JSON test data
-json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Nutrition_page\nutrition_page_test_date.json"
-with open(json_file_path, "r", encoding="utf-8") as f:
-    protein_test_data = json.load(f)["protein_update_test"]
-
 @pytest.mark.run_feature
 def test_update_protein_nutrition_page(driver):
-    go_to_nutrition_page(driver)
+    #go_to_nutrition_page(driver)
     # Open edit protein page
 
 
     failed_cases = []
     click_on(driver, Nutrition.edit_protein_page)
-    for protein in protein_test_data:
+    for protein in test_data["protein_update_test"]:
         protein_data = protein["protein"]
         expected = protein["expected"]
         tc_id = protein["tc_id"]
@@ -106,19 +107,16 @@ def test_update_protein_nutrition_page(driver):
 
 
 
-# Load JSON test data
-json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Nutrition_page\nutrition_page_test_date.json"
-with open(json_file_path, "r", encoding="utf-8") as f:
-    fat_test_data = json.load(f)["fat_update_test"]
+
 @pytest.mark.run_feature
 def test_update_fat_nutrition_page(driver):
-    go_to_nutrition_page(driver)
+    #go_to_nutrition_page(driver)
     # Open edit protein page
-
+    click_on_back_navigation(driver)
 
     failed_cases = []
     click_on(driver, Nutrition.edit_fats_page)
-    for fat in fat_test_data:
+    for fat in test_data["fats_update_test"]:
         fat_data = fat["fat"]
         expected = fat["expected"]
         tc_id = fat["tc_id"]
@@ -144,19 +142,17 @@ def test_update_fat_nutrition_page(driver):
 
 
 
-# Load JSON test data
-json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Nutrition_page\nutrition_page_test_date.json"
-with open(json_file_path, "r", encoding="utf-8") as f:
-    carbs_test_data = json.load(f)["carbs_update_test"]
+
 @pytest.mark.run_feature
 def test_update_carbs_nutrition_page(driver):
-    go_to_nutrition_page(driver)
+    #go_to_nutrition_page(driver)
+    click_on_back_navigation(driver)
 
 
 
     failed_cases = []
     click_on(driver, Nutrition.edit_carbs_page)
-    for carbs in carbs_test_data:
+    for carbs in test_data["carbs_update_test"]:
         carbs_data = carbs["carbs"]
         expected = carbs["expected"]
         tc_id = carbs["tc_id"]

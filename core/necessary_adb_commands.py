@@ -26,7 +26,7 @@ import time
 
 import subprocess
 
-def adb_tap_element_bottom(driver, xpath, device_udid="10ECBH02JJ000D2", offset=10):
+def adb_tap_element_bottom(driver, xpath, device_udid="R4BW600110K", offset=10):
     """
     Tap on the bottom of a given element using adb coordinates.
 
