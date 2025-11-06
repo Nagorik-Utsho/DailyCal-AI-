@@ -1,10 +1,6 @@
 {
   "time": [
-    {"minutes": "85", "expected": true, "tc_id": "time_001_TC15"}
-
-  ],
-
-  "valid":[
+    {"minutes": "85", "expected": true, "tc_id": "time_001_TC15"},
     {"minutes": "null", "expected": false, "tc_id": "time_001_TC28"},
     {"minutes": "false", "expected": false, "tc_id": "time_001_TC29"},
     {"minutes": "  \t\n  ", "expected": false, "tc_id": "time_001_TC30"},

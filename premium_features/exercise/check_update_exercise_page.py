@@ -144,7 +144,7 @@ def validation_of_update_duration_weightlifting(driver, minutes):
 
         # If page navigated, it's valid input → also pass
         print(f"✅ [{minutes}] PASSED (page navigated successfully)")
-        click_on(driver, todays_burn.update_run)  # go back to main test page
+        click_on(driver, todays_burn.update_weight_lifting)  # go back to main test page
         return True
 
     except Exception as e:

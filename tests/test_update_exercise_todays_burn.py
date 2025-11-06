@@ -12,13 +12,13 @@ with open(json_file_path, "r", encoding="utf-8") as f:
     time_validation_data = json.load(f)["time"]
 
 
-# @pytest.mark.run_feature
-# def test_update_intensity_exercise_feature(driver):
-#     go_to_update_run_page(driver)
-#     assert check_intensity_update(driver)
-#
-#     go_to_update_weightlifting_page(driver)
-#     assert check_intensity_update(driver)
+@pytest.mark.run_feature
+def test_update_intensity_exercise_feature(driver):
+    go_to_update_run_page(driver)
+    assert check_intensity_update(driver)
+
+    go_to_update_weightlifting_page(driver)
+    assert check_intensity_update(driver)
 
 
 
@@ -47,6 +47,7 @@ def test_update_duration_run_exercise_feature(driver):
 def go_to_weightlifting_Update(driver):
 
     click_on(driver,todays_burn.update_run_back_navigation)
+    time.sleep(3)
     click_on(driver,todays_burn.update_weight_lifting)
 
 
@@ -55,7 +56,7 @@ def go_to_weightlifting_Update(driver):
 def test_update_duration_weight_exercise_feature(driver):
     print("Check duration for the weight ")
     #go_to_weightlifting_Update(driver)  ""Need to uncomment ""
-
+    go_to_weightlifting_Update(driver)
     for time_data in time_validation_data:
         minutes = time_data["minutes"]
         tc_id = time_data["tc_id"]
@@ -79,7 +80,7 @@ def go_to_update_manual_section(driver):
 
     click_on(driver, todays_burn.update_run_back_navigation) #this back navigation xpath is taken from update run page
     click_on(driver,todays_burn.manual_burn_list )
-
+    click_on(driver, todays_burn.update_manual_calories)
 
 # Load JSON test data
 json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Features\calories_data.json"
@@ -111,32 +112,41 @@ def test_update_manual_calories(driver):
 
         # Continue to next test case automatically
 #
-#     # Load JSON test data
-#
-#
-# json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Features\calories_data.json"
-# with open(json_file_path, "r", encoding="utf-8") as f:
-#     ai_calories_validation_data= json.load(f)["calories"]
-# @pytest.mark.run_feature
-# def test_update_ai_generated_calories(driver):
-#     print("Checking Ai generated calories update")
-#     go_to_ai_generated_calories_update_page(driver)
-#
-#     for ai_calories_data in ai_calories_validation_data:
-#         calories = ai_calories_data["calories"]
-#         expected = ai_calories_data["expected"]
-#         tc_id = ai_calories_data["tc_id"]
-#
-#         # Run the validation
-#         result = validation_of_update_ai_calories_burn(driver, calories)
-#
-#         # Compare with expected and print
-#         if result == expected:
-#             print(f"✅ TC {tc_id} [{calories}] PASSED")
-#         else:
-#             print(f"❌ TC {tc_id} [{calories}] FAILED")
-#
-#         # Continue to next test case automatically
+    # Load JSON test data
+
+
+json_file_path = r"C:\Users\USER\PythonProject\DailyCal_Automation\Test Data\Features\calories_data.json"
+with open(json_file_path, "r", encoding="utf-8") as f:
+    ai_calories_validation_data= json.load(f)["calories"]
+
+
+def go_to_ai_generated_calories(driver) :
+    click_on(driver,todays_burn.update_run_back_navigation)
+    click_on(driver, todays_burn.ai_generated_burn_list)
+    click_on(driver,todays_burn.ai_generated_update_page)
+
+
+@pytest.mark.run_feature
+def test_update_ai_generated_calories(driver):
+    print("Checking Ai generated calories update")
+    #go_to_ai_generated_calories_update_page(driver)
+    go_to_ai_generated_calories(driver)
+
+    for ai_calories_data in ai_calories_validation_data:
+        calories = ai_calories_data["calories"]
+        expected = ai_calories_data["expected"]
+        tc_id = ai_calories_data["tc_id"]
+
+        # Run the validation
+        result = validation_of_update_ai_calories_burn(driver, calories)
+
+        # Compare with expected and print
+        if result == expected:
+            print(f"✅ TC {tc_id} [{calories}] PASSED")
+        else:
+            print(f"❌ TC {tc_id} [{calories}] FAILED")
+
+        # Continue to next test case automatically
 
 
 

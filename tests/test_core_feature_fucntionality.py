@@ -21,7 +21,6 @@ def test_core_features(driver):
     4. Weight lifting
     5. Manual calories
     6. Describe exercise
-    7. Today's burn value update
     """
 
     failures = []  # Collect failures for soft assertion
